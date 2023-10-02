@@ -99,7 +99,7 @@ def relay():
         except IOError:
             logservice.log(logging.INFO, "Serial device closed. Returning to listen mode.")
             calc_connected = False
-            # close socket
+            dev_socket.shutdown()
             return
     return
 
