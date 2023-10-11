@@ -75,7 +75,7 @@
         </briefdescription>
         <detaileddescription>
 <para><simplesect kind="warning"><para>USB timers not yet supported.<linebreak/>
-**DO NOT USE BLOCKING SOCKETS UNTIL TOLD OTHERWISE**. </para>
+ <emphasis>DO NOT USE BLOCKING SOCKETS UNTIL TOLD OTHERWISE.</emphasis> </para>
 </simplesect>
 </para>
         </detaileddescription>
