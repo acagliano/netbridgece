@@ -46,10 +46,10 @@ bool bsocket_close(void);
 /**
  * @brief Alters socket operational parameters after initialization.
  * @param option    An option flag to set. See @b bsocket_option_t.
- * \li SOCKET\_BLOCKING [BOOL] - sets socket into blocking mode
- * \li SOCKET\_TIMEO  [UINT24_T] - timeout (in MS) for blocking mode
- * \li SOCKET\_PREFIX\_SIZE [BOOL] - prefix packet with size (@b bsocket_sendpacket)
- * \li SOCKET\_SET\_CONTROL\_BYTE [UINT8_T] - use a different control byte
+ * \li [bool]SOCKET\_BLOCKING - enable/disable blocking name
+ * \li [uint24_t]SOCKET\_TIMEO - timeout (in MS) for blocking mode
+ * \li [bool]SOCKET\_PREFIX\_SIZE - prefix packet with size (see @b bsocket_sendpacket)
+ * \li [uint8_t]SOCKET\_SET\_CONTROL\_BYTE - change control byte
  * @param value      A value to update parameter with. See expected data type in brackets above.
  * @return @b true if success, @b false if error
  * @warning <b>Do not use blocking sockets until further notice. USB timers not working.</b>

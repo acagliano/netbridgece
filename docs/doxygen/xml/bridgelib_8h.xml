@@ -226,13 +226,13 @@
 </parameternamelist>
 <parameterdescription>
 <para>An option flag to set. See <bold>bsocket_option_t</bold>. <itemizedlist>
-<listitem><para>SOCKET_BLOCKING [BOOL] - sets socket into blocking mode </para>
+<listitem><para>[bool]SOCKET_BLOCKING - enable/disable blocking name </para>
 </listitem>
-<listitem><para>SOCKET_TIMEO [UINT24_T] - timeout (in MS) for blocking mode </para>
+<listitem><para>[uint24_t]SOCKET_TIMEO - timeout (in MS) for blocking mode </para>
 </listitem>
-<listitem><para>SOCKET_PREFIX_SIZE [BOOL] - prefix packet with size (<bold>bsocket_sendpacket</bold>) </para>
+<listitem><para>[bool]SOCKET_PREFIX_SIZE - prefix packet with size (see <bold>bsocket_sendpacket</bold>) </para>
 </listitem>
-<listitem><para>SOCKET_SET_CONTROL_BYTE [UINT8_T] - use a different control byte </para>
+<listitem><para>[uint8_t]SOCKET_SET_CONTROL_BYTE - change control byte </para>
 </listitem>
 </itemizedlist>
 </para>
