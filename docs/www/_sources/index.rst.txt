@@ -1,4 +1,4 @@
-NETBRIDGECE Library
+netbridgece Library
 =====================
 **A bridged socket interface for the TI-84+ CE.**
 

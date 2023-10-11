@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NETBRIDGECE Library &mdash; BRDGLIB  documentation</title>
+  <title>netbridgece Library &mdash; BRDGLIB  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/proof.css" type="text/css" />
@@ -37,7 +37,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">NETBRIDGECE Library</a><ul>
+<li><a class="reference internal" href="#">netbridgece Library</a><ul>
 <li><a class="reference internal" href="#api-documentation">API Documentation</a></li>
 </ul>
 </li>
@@ -57,7 +57,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>NETBRIDGECE Library</li>
+      <li>netbridgece Library</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -67,7 +67,7 @@
            <div itemprop="articleBody">
              
   <div class="section" id="netbridgece-library">
-<h1>NETBRIDGECE Library<a class="headerlink" href="#netbridgece-library" title="Permalink to this headline"></a></h1>
+<h1>netbridgece Library<a class="headerlink" href="#netbridgece-library" title="Permalink to this headline"></a></h1>
 <p><strong>A bridged socket interface for the TI-84+ CE.</strong></p>
 <p>This library allows you to interface with a serial-tcp bridge running on a computer (ie bridged socket) while giving you the feeling of interacting with a standard socket API. The socket internally handles the configuration and maintainence of the state of the USB subsystem so that you do not need to deal with callbacks, events, or the SRL/USB drivers in your code. Simply use the provided API to send/recv data, emit directives to the bridge, and disconnect/close like you would a normal socket.</p>
 <p>In order to use this library, the <strong>tcp bridge</strong> needs to be running on your computer with an active Internet connection. This program can be found in the <em>tcpbridge</em> folder and is called <em>bridge.py</em>.</p>
