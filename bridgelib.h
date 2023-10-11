@@ -52,6 +52,7 @@ bool bsocket_close(void);
  * \li SOCKET\_SET\_CONTROL\_BYTE
  * @param value      A value to update parameter with. See expected data type in brackets in comments above.
  * @return @b true if success, @b false if error
+ * @warning <b>Do not use blocking sockets until further notice. USB timers not working.</b>
  */
 bool bsocket_setoption(bsocket_option_t option, uint24_t value);
 
