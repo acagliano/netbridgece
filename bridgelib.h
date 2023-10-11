@@ -70,7 +70,7 @@ bool bsocket_setoption(bsocket_option_t option, uint24_t value);
 size_t bsocket_send(void *buffer, size_t len);
 
 /**
- * @brief Receives data waiting at the current sockets.
+ * @brief Receives data waiting at the current socket.
  * @param buffer    Pointer to write the data to.
  * @param len           Number of bytes to read.
  * @return  Number of bytes read. Should be less than or equal to @b len depending on socket block/non-block.
@@ -84,7 +84,7 @@ size_t bsocket_recv(void *buffer, size_t len);
  * \li SOCKET\_ENDTLS
  * @param aad                Additional data to send to the bridge along with the directive.
  * @param aad_len       Length of additional data.
- * @note Directives defined above are for the bridge included with this library. If you are using your own bridge you will want to define your own directives.
+ * @note Directives defined are for the bridge included with this library. If you are using your own bridge you will want to define your own directives.
  */
 bool bsocket_emitdirective(bsocket_directives_t directive, void *aad, size_t len);
 

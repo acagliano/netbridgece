@@ -324,7 +324,7 @@
           <declname>len</declname>
         </param>
         <briefdescription>
-<para>Receives data waiting at the current sockets. </para>
+<para>Receives data waiting at the current socket. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -404,7 +404,7 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>Directives defined above are for the bridge included with this library. If you are using your own bridge you will want to define your own directives. </para>
+<simplesect kind="note"><para>Directives defined are for the bridge included with this library. If you are using your own bridge you will want to define your own directives. </para>
 </simplesect>
 </para>
         </detaileddescription>
