@@ -27,11 +27,10 @@ bool bsocket_create(void);
  * @param host    The hostname of the remote server to open a connection to.
  * @param port    The port number to connect to.
  * @return @b true if connection successful, @b false if error
- *
  */
 bool bsocket_connect(char *host, uint24_t port);
 
-///Close the open socket, close the serial device and cleanup the USB subsystem.
+/// Close the open socket, close the serial device and cleanup the USB subsystem.
 bool bsocket_close(void);
 
 /**
