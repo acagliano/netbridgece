@@ -16,6 +16,16 @@ typedef enum _sockoptflags {
   SOCKET_SET_CONTROL_BYTE       /**< [UINT8_T] Reserved byte for sending directives to bridge. */
 } bsocket_option_t;
 
+/// Socket directives for passing to @b bsocket_emitdirective
+/// These directives apply to the bridge distributed in this repository. If using your own bridge, use whatever
+/// directive mapping you used in it as well as set the Control Byte accordingly.
+typedef enum _sockdirectives {
+  RESERVED0,            // connect
+  RESERVED1,            // disconnect
+  SOCKET_STARTTLS,
+  SOCKET_ENDTLS
+} bsocket_directives_t;
+
 /**
  * @brief Initializes the bridged socket device.
  * @return @b true if bridged socket created successfully, @b false if error
@@ -57,6 +67,14 @@ size_t bsocket_send(void *buffer, size_t len);
  * @return  Number of bytes read. Should be less than or equal to @b len depending on socket block/non-block.
  */
 size_t bsocket_recv(void *buffer, size_t len);
+
+/**
+ * @brief Sends a command to the bridge.
+ * @param directive   A single-byte function code to send to the bridge.
+ * @param aad                Additional data to send to the bridge along with the directive.
+ * @param aad_len       Length of additional data.
+ */
+bool bsocket_emitdirective(bsocket_directives_t directive, void *aad, size_t len)
 
 /**
  * @brief Variadic packet constructor for sending formatted packets out the socket.

@@ -174,7 +174,7 @@ JTI1_0:
 ;---------------------------------------------
 
 bsocket_create:
-	ld	hl, -4
+	ld	hl, -14
 	call	ti._frameset
 	call	srl_GetCDCStandardDescriptors
 	ld	de, 36106
@@ -192,13 +192,32 @@ bsocket_create:
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jr	nz, .lbl_9
-	ld	(ix - 4), hl
-	ld	a, 1
+	jp	nz, .lbl_9
+	ld	bc, _timeout_action
+	ld	h, 1
 	ld	l, -5
+	ld	iy, 5000
+	lea	de, ix - 11
+	ld	(ix - 4), bc
+	ld	a, h
 	ld	(_bs+64), a
 	ld	a, l
 	ld	(_bs+70), a
+	ld	a, h
+	ld	(_bs+65), a
+	ld	(_bs+66), iy
+	xor	a, a
+	ld	(_bsock_timeout), a
+	ld	hl, 14
+	push	hl
+	ld	hl, 5118976
+	push	hl
+	ld	(ix - 14), de
+	push	de
+	call	usb_StartTimerCycles
+	pop	hl
+	pop	hl
+	pop	hl
 .lbl_2:
 	call	usb_HandleEvents
 	ld	a, (_bs+64)
@@ -221,17 +240,31 @@ bsocket_create:
 	ld	l, a
 	ld	a, (ix - 1)
 	cp	a, l
-	jr	z, .lbl_7
+	jr	z, .lbl_10
 .lbl_5:
 	ld	a, (_bs+64)
 .lbl_6:
 	cp	a, 3
+	jr	z, .lbl_11
+	ld	a, (_bsock_timeout)
+	ld	l, a
+	ld	a, (_bs+65)
+	and	a, 1
+	bit	0, l
+	jr	nz, .lbl_9
+	bit	0, a
 	jr	nz, .lbl_2
-	jr	.lbl_8
-.lbl_7:
+.lbl_9:
+	xor	a, a
+	jr	.lbl_12
+.lbl_10:
 	ld	a, 3
 	ld	(_bs+64), a
-.lbl_8:
+.lbl_11:
+	ld	hl, (ix - 14)
+	push	hl
+	call	usb_StopTimer
+	pop	hl
 	ld	hl, usb_HandleEvents
 	ld	(_bs+61), hl
 	xor	a, a
@@ -240,16 +273,6 @@ bsocket_create:
 	ld	(_bs+66), hl
 	inc	a
 	ld	(_bs+69), a
-	ld	hl, (ix - 4)
-.lbl_9:
-	add	hl, bc
-	or	a, a
-	sbc	hl, bc
-	jr	z, .lbl_11
-	ld	a, 0
-	jr	.lbl_12
-.lbl_11:
-	ld	a, -1
 .lbl_12:
 	ld	sp, ix
 	pop	ix
@@ -560,39 +583,56 @@ bsocket_recv:
 bsocket_emitdirective:
 	ld	hl, -21
 	call	ti._frameset
-	ld	a, (ix + 6)
-	ld	iyl, a
-	ld	hl, _bs
-	ld	de, 2
-	lea	bc, ix - 10
-	ld	(ix - 21), bc
-	lea	bc, ix - 12
-	ld	(ix - 18), bc
+	ld	de, (ix + 12)
+	ld	iy, _bs
+	ld	bc, 2
+	lea	hl, ix - 13
+	ld	(ix - 18), hl
+	lea	hl, ix - 15
+	ld	(ix - 3), de
 	ld	a, (_bs+70)
-	ld	(ix - 12), a
-	ld	a, iyl
-	ld	(ix - 11), a
-	ld	(ix - 15), de
-	inc	de
-	push	de
-	pea	ix - 15
+	ld	(ix - 15), a
+	ld	a, (ix + 6)
+	ld	(ix - 14), a
+	push	bc
+	ld	(ix - 21), hl
 	push	hl
+	push	iy
 	call	srl_Write
 	pop	hl
 	pop	hl
 	pop	hl
-	ld	hl, 2
+	ld	hl, 3
 	push	hl
-	ld	hl, (ix - 18)
-	push	hl
+	pea	ix - 3
 	ld	hl, _bs
 	push	hl
 	call	srl_Write
+	ld	de, (ix + 9)
 	pop	hl
 	pop	hl
 	pop	hl
+	push	de
+	pop	hl
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	jr	z, .lbl_2
+	ld	hl, (ix - 3)
+	add	hl, bc
+	or	a, a
+	sbc	hl, bc
+	push	hl
+	push	de
+	ld	hl, _bs
+	push	hl
+	call	nz, srl_Write
+	pop	hl
+	pop	hl
+	pop	hl
+.lbl_2:
 	ld	hl, _timeout_action
-	ld	(ix - 3), hl
+	ld	(ix - 6), hl
 	xor	a, a
 	ld	(_bsock_timeout), a
 	ld	hl, _bs+66
@@ -602,17 +642,17 @@ bsocket_emitdirective:
 	pop	bc
 	push	de
 	push	hl
-	ld	hl, (ix - 21)
+	ld	hl, (ix - 18)
 	push	hl
 	call	usb_StartTimerCycles
 	pop	hl
 	pop	hl
 	pop	hl
-.lbl_1:
+.lbl_3:
 	call	usb_HandleEvents
 	ld	hl, 2
 	push	hl
-	ld	hl, (ix - 18)
+	ld	hl, (ix - 21)
 	push	hl
 	ld	hl, _bs
 	push	hl
@@ -625,15 +665,15 @@ bsocket_emitdirective:
 	ld	a, (_bs+65)
 	and	a, 1
 	bit	0, l
-	jr	nz, .lbl_3
+	jr	nz, .lbl_5
 	bit	0, a
-	jr	nz, .lbl_1
-.lbl_3:
-	ld	hl, (ix - 21)
+	jr	nz, .lbl_3
+.lbl_5:
+	ld	hl, (ix - 18)
 	push	hl
 	call	usb_StopTimer
 	pop	hl
-	ld	l, (ix - 12)
+	ld	l, (ix - 15)
 	ld	a, (_bs+70)
 	ld	e, a
 	ld	a, l
@@ -641,14 +681,14 @@ bsocket_emitdirective:
 	ld	e, -1
 	ld	c, 0
 	ld	l, e
-	jr	z, .lbl_5
+	jr	z, .lbl_7
 	ld	l, c
-.lbl_5:
-	ld	a, (ix - 11)
-	or	a, a
-	jr	nz, .lbl_7
-	ld	e, c
 .lbl_7:
+	ld	a, (ix - 14)
+	or	a, a
+	jr	nz, .lbl_9
+	ld	e, c
+.lbl_9:
 	ld	a, l
 	and	a, e
 	ld	sp, ix

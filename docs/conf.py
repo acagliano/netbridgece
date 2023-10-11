@@ -4,7 +4,7 @@ import sys
 sys.path.append('/opt/homebrew/lib/python3.11/site-packages')
 import subprocess, os
 
-project = 'CryptX'
+project = 'BRDGLIB'
 copyright = '2023'
 author = 'Anthony Cagliano'
 
@@ -59,8 +59,8 @@ for version in versions:
    html_context['versions'].append( (version, '/toolchain/' + version + '/index.html') )
 
 breathe_projects = {}
-breathe_default_project = 'CryptX'
+breathe_default_project = 'BRDGLIB'
 breathe_show_define_initializer = True
 breathe_show_enumvalue_initializer = True
 subprocess.call('doxygen doxyfile', shell=True)
-breathe_projects['CryptX'] = 'doxygen/xml'
+breathe_projects['BRDGLIB'] = 'doxygen/xml'

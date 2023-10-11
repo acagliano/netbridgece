@@ -1,3 +1,24 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.7" xml:lang="en-US">
+  <compound refid="bridgelib_8h" kind="file"><name>bridgelib.h</name>
+    <member refid="bridgelib_8h_1a506dd98c7e4cf416b60308ade07b6e3e" kind="define"><name>BSOCKET_PS</name></member>
+    <member refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651" kind="enum"><name>bsocket_option_t</name></member>
+    <member refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a780d99460c4c73283d8be429186e824b" kind="enumvalue"><name>SOCKET_BLOCKING</name></member>
+    <member refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a79f7310ff9d0bf65a2cc16fec8eb07fa" kind="enumvalue"><name>SOCKET_TIMEO</name></member>
+    <member refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a02ea54cdc0bd8d32abcfe280b3f2625c" kind="enumvalue"><name>SOCKET_PREFIX_SIZE</name></member>
+    <member refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651aaca097a409116630065b51303eda26bc" kind="enumvalue"><name>SOCKET_SET_CONTROL_BYTE</name></member>
+    <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" kind="enum"><name>bsocket_directives_t</name></member>
+    <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faea61bb45ae2ff33663da99c18318dd56" kind="enumvalue"><name>RESERVED0</name></member>
+    <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa3401f88113645c341c269d49d044a020" kind="enumvalue"><name>RESERVED1</name></member>
+    <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faa3d72868323333ae179f29abda52f174" kind="enumvalue"><name>SOCKET_STARTTLS</name></member>
+    <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa1d3d1b9a8dddcea47e1f6f6a64608461" kind="enumvalue"><name>SOCKET_ENDTLS</name></member>
+    <member refid="bridgelib_8h_1ac3615e756488f3c4acf5eb473431cd1f" kind="function"><name>bsocket_create</name></member>
+    <member refid="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234" kind="function"><name>bsocket_connect</name></member>
+    <member refid="bridgelib_8h_1a8454409862d3480688ec183e3d557f12" kind="function"><name>bsocket_close</name></member>
+    <member refid="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6" kind="function"><name>bsocket_setoption</name></member>
+    <member refid="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03" kind="function"><name>bsocket_send</name></member>
+    <member refid="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c" kind="function"><name>bsocket_recv</name></member>
+    <member refid="bridgelib_8h_1a069f7265fadc33dd772eff61a34edb9c" kind="function"><name>bsocket_emitdirective</name></member>
+    <member refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" kind="function"><name>bsocket_update</name></member>
+  </compound>
 </doxygenindex>

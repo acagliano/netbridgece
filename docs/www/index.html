@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NETBRIDGECE Library &mdash; CryptX  documentation</title>
+  <title>NETBRIDGECE Library &mdash; BRDGLIB  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/proof.css" type="text/css" />
@@ -25,7 +25,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> CryptX
+            <a href="#" class="icon icon-home"> BRDGLIB
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,7 +49,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">CryptX</a>
+          <a href="#">BRDGLIB</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -69,11 +69,195 @@
   <div class="section" id="netbridgece-library">
 <h1>NETBRIDGECE Library<a class="headerlink" href="#netbridgece-library" title="Permalink to this headline"></a></h1>
 <p><strong>A bridged socket interface for the TI-84+ CE.</strong></p>
-<p>This library allows you to interface with a serial-tcp bridge running on a computer (ie bridged socket) while giving you the feeling of interacting with a standard socket API. The socket internally handles the configuration and maintainence of the state of the USB subsystem so that you do not need to deal with callbacks and events in your code. Simply use the provided API to send/recv data, emit directives to the bridge, and disconnect/close like you would a normal socket.</p>
+<p>This library allows you to interface with a serial-tcp bridge running on a computer (ie bridged socket) while giving you the feeling of interacting with a standard socket API. The socket internally handles the configuration and maintainence of the state of the USB subsystem so that you do not need to deal with callbacks, events, or the SRL/USB drivers in your code. Simply use the provided API to send/recv data, emit directives to the bridge, and disconnect/close like you would a normal socket.</p>
 <p>In order to use this library, the <strong>tcp bridge</strong> needs to be running on your computer with an active Internet connection. This program can be found in the <em>tcpbridge</em> folder and is called <em>bridge.py</em>.</p>
 <hr class="docutils" />
 <div class="section" id="api-documentation">
 <h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414bsocket_createv">
+<span id="_CPPv314bsocket_createv"></span><span id="_CPPv214bsocket_createv"></span><span id="bsocket_create__void"></span><span class="target" id="bridgelib_8h_1ac3615e756488f3c4acf5eb473431cd1f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_create</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414bsocket_createv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Initializes the bridged socket device. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>true</strong> if bridged socket created successfully, <strong>false</strong> if error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415bsocket_connectPc8uint24_t">
+<span id="_CPPv315bsocket_connectPc8uint24_t"></span><span id="_CPPv215bsocket_connectPc8uint24_t"></span><span id="bsocket_connect__cP.uint24_t"></span><span class="target" id="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_connect</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">host</span></span>, <span class="n"><span class="pre">uint24_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">port</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415bsocket_connectPc8uint24_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Attempts to open a bridged connection to the host/port specified. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – The hostname of the remote server to open a connection to. </p></li>
+<li><p><strong>port</strong> – The port number to connect to. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>true</strong> if connection successful, <strong>false</strong> if error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413bsocket_closev">
+<span id="_CPPv313bsocket_closev"></span><span id="_CPPv213bsocket_closev"></span><span id="bsocket_close__void"></span><span class="target" id="bridgelib_8h_1a8454409862d3480688ec183e3d557f12"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_close</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413bsocket_closev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Close the open socket, close the serial device and cleanup the USB subsystem. </p>
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv416bsocket_option_t">
+<span id="_CPPv316bsocket_option_t"></span><span id="_CPPv216bsocket_option_t"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_option_t</span></span></span><a class="headerlink" href="#_CPPv416bsocket_option_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Socket options flags for passing to <strong>bsocket_setoption</strong>. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>USB timers not yet supported. DO NOT USE BLOCKING SOCKETS UNTIL TOLD OTHERWISE. </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t15SOCKET_BLOCKINGE">
+<span id="_CPPv3N16bsocket_option_t15SOCKET_BLOCKINGE"></span><span id="_CPPv2N16bsocket_option_t15SOCKET_BLOCKINGE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a780d99460c4c73283d8be429186e824b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_BLOCKING</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t15SOCKET_BLOCKINGE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>[BOOL] Should socket block (wait for completion)? </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t12SOCKET_TIMEOE">
+<span id="_CPPv3N16bsocket_option_t12SOCKET_TIMEOE"></span><span id="_CPPv2N16bsocket_option_t12SOCKET_TIMEOE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a79f7310ff9d0bf65a2cc16fec8eb07fa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_TIMEO</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t12SOCKET_TIMEOE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>[UINT24_T] Timeout, in MS, for blocking socket connect and recv. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t18SOCKET_PREFIX_SIZEE">
+<span id="_CPPv3N16bsocket_option_t18SOCKET_PREFIX_SIZEE"></span><span id="_CPPv2N16bsocket_option_t18SOCKET_PREFIX_SIZEE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a02ea54cdc0bd8d32abcfe280b3f2625c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_PREFIX_SIZE</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t18SOCKET_PREFIX_SIZEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>[BOOL] Prefix all sent packets with a size word. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE">
+<span id="_CPPv3N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE"></span><span id="_CPPv2N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651aaca097a409116630065b51303eda26bc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_SET_CONTROL_BYTE</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>[UINT8_T] Reserved byte for sending directives to bridge. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417bsocket_setoption16bsocket_option_t8uint24_t">
+<span id="_CPPv317bsocket_setoption16bsocket_option_t8uint24_t"></span><span id="_CPPv217bsocket_setoption16bsocket_option_t8uint24_t"></span><span id="bsocket_setoption__bsocket_option_t.uint24_t"></span><span class="target" id="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_setoption</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv416bsocket_option_t" title="bsocket_option_t"><span class="n"><span class="pre">bsocket_option_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">option</span></span>, <span class="n"><span class="pre">uint24_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417bsocket_setoption16bsocket_option_t8uint24_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Alters socket operational parameters after initialization. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>option</strong> – An option flag to set. See <strong>bsocket_option_t</strong>. </p></li>
+<li><p><strong>value</strong> – A value to update parameter with. See expected data type in brackets in comments above. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>true</strong> if success, <strong>false</strong> if error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412bsocket_sendPv6size_t">
+<span id="_CPPv312bsocket_sendPv6size_t"></span><span id="_CPPv212bsocket_sendPv6size_t"></span><span id="bsocket_send__voidP.s"></span><span class="target" id="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_send</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412bsocket_sendPv6size_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sends data out the open socket. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – Pointer to data to write to the socket. </p></li>
+<li><p><strong>len</strong> – Length of the data at <strong>buffer</strong>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of bytes written to the socket. Should be equal to <strong>len</strong>. Does not add headers or size words to the output data. See <strong>bsocket_sendpacket</strong> for that. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412bsocket_recvPv6size_t">
+<span id="_CPPv312bsocket_recvPv6size_t"></span><span id="_CPPv212bsocket_recvPv6size_t"></span><span id="bsocket_recv__voidP.s"></span><span class="target" id="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_recv</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412bsocket_recvPv6size_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receives data waiting at the current sockets. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – Pointer to write the data to. </p></li>
+<li><p><strong>len</strong> – Number of bytes to read. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of bytes read. Should be less than or equal to <strong>len</strong> depending on socket block/non-block. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv420bsocket_directives_t">
+<span id="_CPPv320bsocket_directives_t"></span><span id="_CPPv220bsocket_directives_t"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_directives_t</span></span></span><a class="headerlink" href="#_CPPv420bsocket_directives_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Socket directives for passing to <strong>bsocket_emitdirective</strong> These directives apply to the bridge distributed in this repository. If using your own bridge, use whatever directive mapping you used in it as well as set the Control Byte accordingly. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t9RESERVED0E">
+<span id="_CPPv3N20bsocket_directives_t9RESERVED0E"></span><span id="_CPPv2N20bsocket_directives_t9RESERVED0E"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faea61bb45ae2ff33663da99c18318dd56"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RESERVED0</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t9RESERVED0E" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t9RESERVED1E">
+<span id="_CPPv3N20bsocket_directives_t9RESERVED1E"></span><span id="_CPPv2N20bsocket_directives_t9RESERVED1E"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa3401f88113645c341c269d49d044a020"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RESERVED1</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t9RESERVED1E" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t15SOCKET_STARTTLSE">
+<span id="_CPPv3N20bsocket_directives_t15SOCKET_STARTTLSE"></span><span id="_CPPv2N20bsocket_directives_t15SOCKET_STARTTLSE"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faa3d72868323333ae179f29abda52f174"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_STARTTLS</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t15SOCKET_STARTTLSE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t13SOCKET_ENDTLSE">
+<span id="_CPPv3N20bsocket_directives_t13SOCKET_ENDTLSE"></span><span id="_CPPv2N20bsocket_directives_t13SOCKET_ENDTLSE"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa1d3d1b9a8dddcea47e1f6f6a64608461"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_ENDTLS</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t13SOCKET_ENDTLSE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="bridgelib_8h_1a069f7265fadc33dd772eff61a34edb9c"></span><span class="sig-name descname"><span class="pre">bool</span> <span class="pre">bsocket_emitdirective</span> <span class="pre">(bsocket_directives_t</span> <span class="pre">directive,</span> <span class="pre">void</span> <span class="pre">*aad,</span> <span class="pre">size_t</span> <span class="pre">len)</span> <span class="pre">size_t</span> <span class="pre">bsocket_sendpacket(int</span> <span class="pre">ps_count</span></span></dt>
+<dd><p>Sends a command to the bridge. </p>
+<p>
+Variadic packet constructor for sending formatted packets out the socket. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directive</strong> – A single-byte function code to send to the bridge. </p></li>
+<li><p><strong>aad</strong> – Additional data to send to the bridge along with the directive. </p></li>
+<li><p><strong>aad_len</strong> – Length of additional data.</p></li>
+<li><p><strong>ps_count</strong> – Number of <strong>ptr</strong> and <strong>len</strong> pairs to follow. </p></li>
+<li><p><strong>...</strong> – Variadic arguments which should be pairs of pointer and length. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of bytes written (not including size word). If the <strong>PREFIX_SIZE_WORD</strong> option is enabled, the packet will be prefixed with the combined size of all segments. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “bsocket_sendpacket” in doxygen xml output for project “BRDGLIB” from directory: doxygen/xml</p>
+</div>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.BSOCKET_PS">
+<span class="target" id="bridgelib_8h_1a506dd98c7e4cf416b60308ade07b6e3e"></span><span class="sig-name descname"><span class="n"><span class="pre">BSOCKET_PS</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ptr</span></span>, <span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.BSOCKET_PS" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414bsocket_updatev">
+<span id="_CPPv314bsocket_updatev"></span><span id="_CPPv214bsocket_updatev"></span><span id="bsocket_update__void"></span><span class="target" id="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_update</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414bsocket_updatev" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calls the event handlers for the USB subsystem. For asnyc use processing transfers and events in code. </p>
+</dd></dl>
+
 </div>
 </div>
 
