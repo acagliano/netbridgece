@@ -108,44 +108,9 @@
 <dd><p>Close the open socket, close the serial device and cleanup the USB subsystem. </p>
 </dd></dl>
 
-<dl class="cpp enum">
-<dt class="sig sig-object cpp" id="_CPPv416bsocket_option_t">
-<span id="_CPPv316bsocket_option_t"></span><span id="_CPPv216bsocket_option_t"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_option_t</span></span></span><a class="headerlink" href="#_CPPv416bsocket_option_t" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Socket options flags for passing to <strong>bsocket_setoption</strong>. </p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>USB timers not yet supported. <strong>DO NOT USE BLOCKING SOCKETS UNTIL TOLD OTHERWISE.</strong> </p>
-</div>
-<p><em>Values:</em></p>
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t15SOCKET_BLOCKINGE">
-<span id="_CPPv3N16bsocket_option_t15SOCKET_BLOCKINGE"></span><span id="_CPPv2N16bsocket_option_t15SOCKET_BLOCKINGE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a780d99460c4c73283d8be429186e824b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_BLOCKING</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t15SOCKET_BLOCKINGE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>[BOOL] Should socket block (wait for completion)? </p>
-</dd></dl>
-
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t12SOCKET_TIMEOE">
-<span id="_CPPv3N16bsocket_option_t12SOCKET_TIMEOE"></span><span id="_CPPv2N16bsocket_option_t12SOCKET_TIMEOE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a79f7310ff9d0bf65a2cc16fec8eb07fa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_TIMEO</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t12SOCKET_TIMEOE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>[UINT24_T] Timeout, in MS, for blocking socket connect and recv. </p>
-</dd></dl>
-
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t18SOCKET_PREFIX_SIZEE">
-<span id="_CPPv3N16bsocket_option_t18SOCKET_PREFIX_SIZEE"></span><span id="_CPPv2N16bsocket_option_t18SOCKET_PREFIX_SIZEE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a02ea54cdc0bd8d32abcfe280b3f2625c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_PREFIX_SIZE</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t18SOCKET_PREFIX_SIZEE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>[BOOL] Prefix all sent packets with a size word. </p>
-</dd></dl>
-
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE">
-<span id="_CPPv3N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE"></span><span id="_CPPv2N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE"></span><span class="target" id="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651aaca097a409116630065b51303eda26bc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_SET_CONTROL_BYTE</span></span></span><a class="headerlink" href="#_CPPv4N16bsocket_option_t23SOCKET_SET_CONTROL_BYTEE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>[UINT8_T] Reserved byte for sending directives to bridge. </p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv417bsocket_setoption16bsocket_option_t8uint24_t">
-<span id="_CPPv317bsocket_setoption16bsocket_option_t8uint24_t"></span><span id="_CPPv217bsocket_setoption16bsocket_option_t8uint24_t"></span><span id="bsocket_setoption__bsocket_option_t.uint24_t"></span><span class="target" id="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_setoption</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv416bsocket_option_t" title="bsocket_option_t"><span class="n"><span class="pre">bsocket_option_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">option</span></span>, <span class="n"><span class="pre">uint24_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417bsocket_setoption16bsocket_option_t8uint24_t" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv317bsocket_setoption16bsocket_option_t8uint24_t"></span><span id="_CPPv217bsocket_setoption16bsocket_option_t8uint24_t"></span><span id="bsocket_setoption__bsocket_option_t.uint24_t"></span><span class="target" id="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_setoption</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bsocket_option_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">option</span></span>, <span class="n"><span class="pre">uint24_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417bsocket_setoption16bsocket_option_t8uint24_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Alters socket operational parameters after initialization. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

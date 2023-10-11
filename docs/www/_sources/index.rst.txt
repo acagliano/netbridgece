@@ -20,9 +20,6 @@ API Documentation
 .. doxygenfunction:: bsocket_close
   :project: BRDGLIB
   
-.. doxygenenum:: bsocket_option_t
-  :project: BRDGLIB
-  
 .. doxygenfunction:: bsocket_setoption
   :project: BRDGLIB
   
