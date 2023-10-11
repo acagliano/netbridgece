@@ -1,0 +1,10 @@
+	library	BRDGLIB, 0
+
+	export	bsocket_create
+	export	bsocket_connect
+	export	bsocket_close
+	export	bsocket_setoption
+	export	bsocket_send
+	export	bsocket_recv
+	export	bsocket_update
+	export	bsocket_sendpacket
