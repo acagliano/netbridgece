@@ -8,7 +8,7 @@
 #include <stdbool.h>
 
 /// Socket options flags for passing to @b bsocket_setoption
-/// @warning USB timers not yet supported.
+/// @warning USB timers not yet supported.\n
 /// <b>DO NOT USE BLOCKING SOCKETS UNTIL TOLD OTHERWISE.</b>
 typedef enum _sockoptflags {
   SOCKET_BLOCKING,              /**< [BOOL] Should socket block (wait for completion)? */
