@@ -150,7 +150,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>option</strong> – An option flag to set. See <strong>bsocket_option_t</strong>. </p></li>
+<li><p><strong>option</strong> – An option flag to set. See <strong>bsocket_option_t</strong>. <ul>
+<li><p>SOCKET_BLOCKING </p></li>
+<li><p>SOCKET_TIMEO </p></li>
+<li><p>SOCKET_PREFIX_SIZE </p></li>
+<li><p>SOCKET_SET_CONTROL_BYTE </p></li>
+</ul>
+</p></li>
 <li><p><strong>value</strong> – A value to update parameter with. See expected data type in brackets in comments above. </p></li>
 </ul>
 </dd>
@@ -194,36 +200,9 @@
 </dl>
 </dd></dl>
 
-<dl class="cpp enum">
-<dt class="sig sig-object cpp" id="_CPPv420bsocket_directives_t">
-<span id="_CPPv320bsocket_directives_t"></span><span id="_CPPv220bsocket_directives_t"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_directives_t</span></span></span><a class="headerlink" href="#_CPPv420bsocket_directives_t" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Socket directives for passing to <strong>bsocket_emitdirective</strong> These directives apply to the bridge distributed in this repository. If using your own bridge, use whatever directive mapping you used in it as well as set the Control Byte accordingly. </p>
-<p><em>Values:</em></p>
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t9RESERVED0E">
-<span id="_CPPv3N20bsocket_directives_t9RESERVED0E"></span><span id="_CPPv2N20bsocket_directives_t9RESERVED0E"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faea61bb45ae2ff33663da99c18318dd56"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RESERVED0</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t9RESERVED0E" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t9RESERVED1E">
-<span id="_CPPv3N20bsocket_directives_t9RESERVED1E"></span><span id="_CPPv2N20bsocket_directives_t9RESERVED1E"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa3401f88113645c341c269d49d044a020"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RESERVED1</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t9RESERVED1E" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t15SOCKET_STARTTLSE">
-<span id="_CPPv3N20bsocket_directives_t15SOCKET_STARTTLSE"></span><span id="_CPPv2N20bsocket_directives_t15SOCKET_STARTTLSE"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faa3d72868323333ae179f29abda52f174"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_STARTTLS</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t15SOCKET_STARTTLSE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N20bsocket_directives_t13SOCKET_ENDTLSE">
-<span id="_CPPv3N20bsocket_directives_t13SOCKET_ENDTLSE"></span><span id="_CPPv2N20bsocket_directives_t13SOCKET_ENDTLSE"></span><span class="target" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa1d3d1b9a8dddcea47e1f6f6a64608461"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SOCKET_ENDTLS</span></span></span><a class="headerlink" href="#_CPPv4N20bsocket_directives_t13SOCKET_ENDTLSE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t">
-<span id="_CPPv321bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="_CPPv221bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="bsocket_emitdirective__bsocket_directives_t.voidP.s"></span><span class="target" id="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_emitdirective</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv420bsocket_directives_t" title="bsocket_directives_t"><span class="n"><span class="pre">bsocket_directives_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">directive</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aad</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv321bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="_CPPv221bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="bsocket_emitdirective__bsocket_directives_t.voidP.s"></span><span class="target" id="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_emitdirective</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bsocket_directives_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">directive</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aad</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Sends a command to the bridge. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

@@ -31,10 +31,7 @@ API Documentation
   
 .. doxygenfunction:: bsocket_recv
   :project: BRDGLIB
-  
-.. doxygenenum:: bsocket_directives_t
-  :project: BRDGLIB
-  
+
 .. doxygenfunction:: bsocket_emitdirective
   :project: BRDGLIB
   

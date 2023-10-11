@@ -46,6 +46,10 @@ bool bsocket_close(void);
 /**
  * @brief Alters socket operational parameters after initialization.
  * @param option    An option flag to set. See @b bsocket_option_t.
+ * \li SOCKET\_BLOCKING
+ * \li SOCKET\_TIMEO
+ * \li SOCKET\_PREFIX\_SIZE
+ * \li SOCKET\_SET\_CONTROL\_BYTE
  * @param value      A value to update parameter with. See expected data type in brackets in comments above.
  * @return @b true if success, @b false if error
  */
