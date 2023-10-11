@@ -74,8 +74,7 @@
 <para>Socket options flags for passing to <bold>bsocket_setoption</bold>. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="warning"><para>USB timers not yet supported.<linebreak/>
- <bold>DO NOT USE BLOCKING SOCKETS UNTIL TOLD OTHERWISE.</bold> </para>
+<para><simplesect kind="warning"><para>USB timers not yet supported. <bold>DO NOT USE BLOCKING SOCKETS UNTIL TOLD OTHERWISE.</bold> </para>
 </simplesect>
 </para>
         </detaileddescription>
