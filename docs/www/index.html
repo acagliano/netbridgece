@@ -120,13 +120,13 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>option</strong> – An option flag to set. See <strong>bsocket_option_t</strong>. <ul>
-<li><p>SOCKET_BLOCKING [BOOL] </p></li>
-<li><p>SOCKET_TIMEO [UINT24_T] </p></li>
-<li><p>SOCKET_PREFIX_SIZE [BOOL] </p></li>
-<li><p>SOCKET_SET_CONTROL_BYTE [UINT8_T] </p></li>
+<li><p>SOCKET_BLOCKING [BOOL] - sets socket into blocking mode </p></li>
+<li><p>SOCKET_TIMEO [UINT24_T] - timeout (in MS) for blocking mode </p></li>
+<li><p>SOCKET_PREFIX_SIZE [BOOL] - prefix packet with size (<strong>bsocket_sendpacket</strong>) </p></li>
+<li><p>SOCKET_SET_CONTROL_BYTE [UINT8_T] - use a different control byte </p></li>
 </ul>
 </p></li>
-<li><p><strong>value</strong> – A value to update parameter with. See expected data type in brackets in comments above. </p></li>
+<li><p><strong>value</strong> – A value to update parameter with. See expected data type in brackets above. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -173,6 +173,10 @@
 <dt class="sig sig-object cpp" id="_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t">
 <span id="_CPPv321bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="_CPPv221bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="bsocket_emitdirective__bsocket_directives_t.voidP.s"></span><span class="target" id="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_emitdirective</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bsocket_directives_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">directive</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aad</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Sends a command to the bridge. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Directives defined above are for the bridge included with this library. If you are using your own bridge you will want to define your own directives. </p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

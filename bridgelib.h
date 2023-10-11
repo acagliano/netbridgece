@@ -46,11 +46,11 @@ bool bsocket_close(void);
 /**
  * @brief Alters socket operational parameters after initialization.
  * @param option    An option flag to set. See @b bsocket_option_t.
- * \li SOCKET\_BLOCKING [BOOL]
- * \li SOCKET\_TIMEO  [UINT24_T]
- * \li SOCKET\_PREFIX\_SIZE [BOOL]
- * \li SOCKET\_SET\_CONTROL\_BYTE [UINT8_T]
- * @param value      A value to update parameter with. See expected data type in brackets in comments above.
+ * \li SOCKET\_BLOCKING [BOOL] - sets socket into blocking mode
+ * \li SOCKET\_TIMEO  [UINT24_T] - timeout (in MS) for blocking mode
+ * \li SOCKET\_PREFIX\_SIZE [BOOL] - prefix packet with size (@b bsocket_sendpacket)
+ * \li SOCKET\_SET\_CONTROL\_BYTE [UINT8_T] - use a different control byte
+ * @param value      A value to update parameter with. See expected data type in brackets above.
  * @return @b true if success, @b false if error
  * @warning <b>Do not use blocking sockets until further notice. USB timers not working.</b>
  */
@@ -80,6 +80,7 @@ size_t bsocket_recv(void *buffer, size_t len);
  * \li SOCKET\_ENDTLS
  * @param aad                Additional data to send to the bridge along with the directive.
  * @param aad_len       Length of additional data.
+ * @note Directives defined above are for the bridge included with this library. If you are using your own bridge you will want to define your own directives.
  */
 bool bsocket_emitdirective(bsocket_directives_t directive, void *aad, size_t len);
 
