@@ -228,7 +228,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>directive</strong> – A single-byte function code to send to the bridge. </p></li>
+<li><p><strong>directive</strong> – A single-byte function code to send to the bridge. <ul>
+<li><p>SOCKET_STARTTLS </p></li>
+<li><p>SOCKET_ENDTLS </p></li>
+</ul>
+</p></li>
 <li><p><strong>aad</strong> – Additional data to send to the bridge along with the directive. </p></li>
 <li><p><strong>aad_len</strong> – Length of additional data. </p></li>
 </ul>
@@ -244,7 +248,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ps_count</strong> – Number of <strong>ptr</strong> and <strong>len</strong> pairs to follow. </p></li>
-<li><p><strong>...</strong> – <strong>[in]</strong> Variadic arguments which should be pairs of pointer and length. </p></li>
+<li><p><strong>...</strong> – Variadic arguments which should be pairs of pointer and length. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
