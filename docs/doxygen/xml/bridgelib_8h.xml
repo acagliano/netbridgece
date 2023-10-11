@@ -26,12 +26,13 @@
         <param><defname>ptr</defname></param>
         <param><defname>len</defname></param>
         <briefdescription>
+<para>defines a macro for passing a <bold>PTR</bold> and <bold>LEN</bold> pair to <bold>bsocket_sendpacket</bold>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="99" column="9" bodyfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" bodystart="99" bodyend="-1"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="101" column="9" bodyfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" bodystart="101" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -467,7 +468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="102" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="102" declcolumn="6"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="104" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="104" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -512,11 +513,12 @@
 <codeline lineno="89" refid="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a" kindref="member">bsocket_emitdirective</ref>(<ref refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" kindref="member">bsocket_directives_t</ref><sp/>directive,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*aad,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
 <codeline lineno="98" refid="bridgelib_8h_1a8ac4d3daf67594ed0b1f5cff5b2f94be" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a8ac4d3daf67594ed0b1f5cff5b2f94be" kindref="member">bsocket_sendpacket</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ps_count,<sp/>...);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BSOCKET_PS(ptr,<sp/>len)<sp/><sp/><sp/><sp/>(ptr),<sp/>(len)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102" refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" kindref="member">bsocket_update</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="bridgelib_8h_1a506dd98c7e4cf416b60308ade07b6e3e" refkind="member"><highlight class="preprocessor">#define<sp/>BSOCKET_PS(ptr,<sp/>len)<sp/><sp/><sp/><sp/>(ptr),<sp/>(len)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" kindref="member">bsocket_update</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h"/>
   </compounddef>

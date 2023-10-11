@@ -96,6 +96,8 @@ bool bsocket_emitdirective(bsocket_directives_t directive, void *aad, size_t len
  * If the @b PREFIX_SIZE_WORD option is enabled, the packet will be prefixed with the combined size of all segments.
  */
 size_t bsocket_sendpacket(int ps_count, ...);
+
+/// defines a macro for passing a @b PTR and @b LEN pair to @b bsocket_sendpacket.
 #define BSOCKET_PS(ptr, len)    (ptr), (len)
 
 /// Calls the event handlers for the USB subsystem. For asnyc use processing transfers and events in code.
