@@ -243,7 +243,7 @@
 <parametername>value</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A value to update parameter with. See expected data type in brackets above. <itemizedlist>
+<para>A value to update parameter with. See expected data types below. <itemizedlist>
 <listitem><para>SOCKET_BLOCKING - [BOOL] </para>
 </listitem>
 <listitem><para>SOCKET_TIMEO - [UINT24_T] </para>
