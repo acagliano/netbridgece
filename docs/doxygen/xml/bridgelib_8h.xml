@@ -226,13 +226,13 @@
 </parameternamelist>
 <parameterdescription>
 <para>An option flag to set. See <bold>bsocket_option_t</bold>. <itemizedlist>
-<listitem><para>SOCKET_BLOCKING </para>
+<listitem><para>SOCKET_BLOCKING [BOOL] </para>
 </listitem>
-<listitem><para>SOCKET_TIMEO </para>
+<listitem><para>SOCKET_TIMEO [UINT24_T] </para>
 </listitem>
-<listitem><para>SOCKET_PREFIX_SIZE </para>
+<listitem><para>SOCKET_PREFIX_SIZE [BOOL] </para>
 </listitem>
-<listitem><para>SOCKET_SET_CONTROL_BYTE </para>
+<listitem><para>SOCKET_SET_CONTROL_BYTE [UINT8_T] </para>
 </listitem>
 </itemizedlist>
 </para>
