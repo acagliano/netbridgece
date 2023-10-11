@@ -74,12 +74,12 @@ size_t bsocket_recv(void *buffer, size_t len);
  * @param aad                Additional data to send to the bridge along with the directive.
  * @param aad_len       Length of additional data.
  */
-bool bsocket_emitdirective(bsocket_directives_t directive, void *aad, size_t len)
+bool bsocket_emitdirective(bsocket_directives_t directive, void *aad, size_t len);
 
 /**
  * @brief Variadic packet constructor for sending formatted packets out the socket.
  * @param ps_count    Number of @b ptr and @b len pairs to follow.
- * @param ...               Variadic arguments which should be pairs of pointer and length.
+ * @param[in] ...               Variadic arguments which should be pairs of pointer and length.
  * @return  Number of bytes written (not including size word).
  * If the @b PREFIX_SIZE_WORD option is enabled, the packet will be prefixed with the combined size of all segments.
  */

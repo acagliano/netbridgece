@@ -222,19 +222,29 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp">
-<span class="target" id="bridgelib_8h_1a069f7265fadc33dd772eff61a34edb9c"></span><span class="sig-name descname"><span class="pre">bool</span> <span class="pre">bsocket_emitdirective</span> <span class="pre">(bsocket_directives_t</span> <span class="pre">directive,</span> <span class="pre">void</span> <span class="pre">*aad,</span> <span class="pre">size_t</span> <span class="pre">len)</span> <span class="pre">size_t</span> <span class="pre">bsocket_sendpacket(int</span> <span class="pre">ps_count</span></span></dt>
+<dt class="sig sig-object cpp" id="_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t">
+<span id="_CPPv321bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="_CPPv221bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="bsocket_emitdirective__bsocket_directives_t.voidP.s"></span><span class="target" id="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_emitdirective</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv420bsocket_directives_t" title="bsocket_directives_t"><span class="n"><span class="pre">bsocket_directives_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">directive</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aad</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Sends a command to the bridge. </p>
-<p>
-Variadic packet constructor for sending formatted packets out the socket. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>directive</strong> – A single-byte function code to send to the bridge. </p></li>
 <li><p><strong>aad</strong> – Additional data to send to the bridge along with the directive. </p></li>
-<li><p><strong>aad_len</strong> – Length of additional data.</p></li>
+<li><p><strong>aad_len</strong> – Length of additional data. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418bsocket_sendpacketiz">
+<span id="_CPPv318bsocket_sendpacketiz"></span><span id="_CPPv218bsocket_sendpacketiz"></span><span id="bsocket_sendpacket__i.z"></span><span class="target" id="bridgelib_8h_1a8ac4d3daf67594ed0b1f5cff5b2f94be"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_sendpacket</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ps_count</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418bsocket_sendpacketiz" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Variadic packet constructor for sending formatted packets out the socket. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>ps_count</strong> – Number of <strong>ptr</strong> and <strong>len</strong> pairs to follow. </p></li>
-<li><p><strong>...</strong> – Variadic arguments which should be pairs of pointer and length. </p></li>
+<li><p><strong>...</strong> – <strong>[in]</strong> Variadic arguments which should be pairs of pointer and length. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -243,10 +253,6 @@ Variadic packet constructor for sending formatted packets out the socket. </p>
 </dl>
 </dd></dl>
 
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find function “bsocket_sendpacket” in doxygen xml output for project “BRDGLIB” from directory: doxygen/xml</p>
-</div>
 <dl class="cpp macro">
 <dt class="sig sig-object cpp" id="c.BSOCKET_PS">
 <span class="target" id="bridgelib_8h_1a506dd98c7e4cf416b60308ade07b6e3e"></span><span class="sig-name descname"><span class="n"><span class="pre">BSOCKET_PS</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ptr</span></span>, <span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.BSOCKET_PS" title="Permalink to this definition"></a><br /></dt>
