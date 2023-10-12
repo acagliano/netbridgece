@@ -48,7 +48,7 @@ bool bsocket_close(void);
 /**
  * @brief Alters socket operational parameters after initialization.
  * @param option    An option flag to set. See @b bsocket_option_t.
- * \li SOCKET\_BLOCKING - enable/disable blocking name
+ * \li SOCKET\_BLOCKING - enable/disable blocking mode
  * \li SOCKET\_TIMEO - timeout (in MS) for blocking mode
  * \li SOCKET\_PREFIX\_SIZE - prefix packet with size (see @b bsocket_sendpacket)
  * \li SOCKET\_SET\_CONTROL\_BYTE - change control byte
@@ -65,11 +65,11 @@ bool bsocket_close(void);
 bool bsocket_setoption(bsocket_option_t option, uint24_t value);
 
 /**
- * @brief Sends data out the open socket.
+ * @brief Sends data out the open socket. Does not add headers or size words to the output data.
+ * See @b bsocket_sendpacket for that.
  * @param buffer      Pointer to data to write to the socket.
  * @param len             Length of the data at @b buffer.
  * @return  Number of bytes written to the socket. Should be equal to @b len.
- * Does not add headers or size words to the output data. See @b bsocket_sendpacket for that.
  */
 size_t bsocket_send(void *buffer, size_t len);
 
