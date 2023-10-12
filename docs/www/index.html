@@ -144,7 +144,6 @@
 <li><p><strong>option</strong> – An option flag to set. See <strong>bsocket_option_t</strong>. <ul>
 <li><p>SOCKET_BLOCKING - enable/disable blocking mode </p></li>
 <li><p>SOCKET_TIMEO - timeout (in MS) for blocking mode </p></li>
-<li><p>SOCKET_PREFIX_SIZE - prefix packet with size (see <strong>bsocket_sendpacket</strong>) </p></li>
 <li><p>SOCKET_SET_CONTROL_BYTE - change control byte </p></li>
 <li><p>SOCKET_SET_RELAY_BYTE - change relay byte </p></li>
 </ul>
@@ -152,7 +151,6 @@
 <li><p><strong>value</strong> – A value to update parameter with. See expected data types below. <ul>
 <li><p>SOCKET_BLOCKING - [BOOL] </p></li>
 <li><p>SOCKET_TIMEO - [UINT24_T] </p></li>
-<li><p>SOCKET_PREFIX_SIZE - [BOOL] </p></li>
 <li><p>SOCKET_SET_CONTROL_BYTE - [UINT8_T] </p></li>
 <li><p>SOCKET_SET_RELAY_BYTE - [UINT8_T] </p></li>
 </ul>
@@ -168,8 +166,11 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv412bsocket_sendPv6size_t">
 <span id="_CPPv312bsocket_sendPv6size_t"></span><span id="_CPPv212bsocket_sendPv6size_t"></span><span id="bsocket_send__voidP.s"></span><span class="target" id="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_send</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412bsocket_sendPv6size_t" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Sends data out the open socket. </p>
-<p>Does not add headers or size words to the output data. See <strong>bsocket_sendpacket</strong> for that. </p>
+<dd><p>Sends a packet out the serial device for TCP relay. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sent packet format is <strong>[relayprefix][size_t][data]</strong>. [relayprefix] is stripped by the bridge. </p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -186,7 +187,7 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv412bsocket_recvPv6size_t">
 <span id="_CPPv312bsocket_recvPv6size_t"></span><span id="_CPPv212bsocket_recvPv6size_t"></span><span id="bsocket_recv__voidP.s"></span><span class="target" id="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_recv</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412bsocket_recvPv6size_t" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Receives data waiting at the current socket. </p>
+<dd><p>Recieves a packet relayed from the TCP socket to the serial device. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -221,29 +222,6 @@
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv418bsocket_sendpacketiz">
-<span id="_CPPv318bsocket_sendpacketiz"></span><span id="_CPPv218bsocket_sendpacketiz"></span><span id="bsocket_sendpacket__i.z"></span><span class="target" id="bridgelib_8h_1a8ac4d3daf67594ed0b1f5cff5b2f94be"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_sendpacket</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ps_count</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418bsocket_sendpacketiz" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Variadic packet constructor for sending formatted packets out the socket. </p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ps_count</strong> – Number of <strong>ptr</strong> and <strong>len</strong> pairs to follow. </p></li>
-<li><p><strong>...</strong> – Variadic arguments which should be pairs of pointer and length. </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Number of bytes written (not including size word). If the <strong>PREFIX_SIZE_WORD</strong> option is enabled, the packet will be prefixed with the combined size of all segments. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp macro">
-<dt class="sig sig-object cpp" id="c.BSOCKET_PS">
-<span class="target" id="bridgelib_8h_1a506dd98c7e4cf416b60308ade07b6e3e"></span><span class="sig-name descname"><span class="n"><span class="pre">BSOCKET_PS</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ptr</span></span>, <span class="n"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.BSOCKET_PS" title="Permalink to this definition"></a><br /></dt>
-<dd><p>defines a macro for passing a <strong>PTR</strong> and <strong>LEN</strong> pair to <strong>bsocket_sendpacket</strong>. </p>
 </dd></dl>
 
 <dl class="cpp function">

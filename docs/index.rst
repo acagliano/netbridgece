@@ -52,12 +52,6 @@ API Documentation
 .. doxygenfunction:: bsocket_emitdirective
   :project: BRDGLIB
   
-.. doxygenfunction:: bsocket_sendpacket
-  :project: BRDGLIB
-  
-.. doxygendefine:: BSOCKET_PS
-  :project: BRDGLIB
-  
 .. doxygenfunction:: bsocket_update
   :project: BRDGLIB
 
