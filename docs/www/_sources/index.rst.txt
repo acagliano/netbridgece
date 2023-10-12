@@ -1,4 +1,4 @@
-netbridgece Library
+NetBridgeCE Library
 =====================
 **A bridged socket interface for the TI-84+ CE.**
 
@@ -7,6 +7,9 @@ This library allows you to interface with a serial-tcp bridge running on a compu
 In order to use this library, the **tcp bridge** needs to be running on your computer with an active Internet connection. This program can be found in the *tcpbridge* folder and is called *bridge.py*.
 
 ----
+
+Bridge Operation
+_________________
 
 The expectation of the bridge is that a single byte prefix the incoming data (calc=>bridge) to tell the bridge whether the data is a **directive** or a **relay**. A directive begins with the static prefix :code:`0xFB`, then an instruction byte that controls what function to run. A relay packet begins with the static prefix :code:`0x00` and then has the data to forward to the socket.
 

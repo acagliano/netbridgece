@@ -249,7 +249,7 @@
 </parameternamelist>
 <parameterdescription>
 <para>An option flag to set. See <bold>bsocket_option_t</bold>. <itemizedlist>
-<listitem><para>SOCKET_BLOCKING - enable/disable blocking name </para>
+<listitem><para>SOCKET_BLOCKING - enable/disable blocking mode </para>
 </listitem>
 <listitem><para>SOCKET_TIMEO - timeout (in MS) for blocking mode </para>
 </listitem>
@@ -311,7 +311,7 @@
 <para>Sends data out the open socket. </para>
         </briefdescription>
         <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
+<para>Does not add headers or size words to the output data. See <bold>bsocket_sendpacket</bold> for that. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>buffer</parametername>
 </parameternamelist>
@@ -328,7 +328,7 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>Number of bytes written to the socket. Should be equal to <bold>len</bold>. Does not add headers or size words to the output data. See <bold>bsocket_sendpacket</bold> for that. </para>
+<simplesect kind="return"><para>Number of bytes written to the socket. Should be equal to <bold>len</bold>. </para>
 </simplesect>
 </para>
         </detaileddescription>

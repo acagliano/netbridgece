@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>netbridgece Library &mdash; BRDGLIB  documentation</title>
+  <title>NetBridgeCE Library &mdash; BRDGLIB  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/proof.css" type="text/css" />
@@ -37,8 +37,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">netbridgece Library</a><ul>
+<li><a class="reference internal" href="#">NetBridgeCE Library</a><ul>
+<li><a class="reference internal" href="#bridge-operation">Bridge Operation</a><ul>
 <li><a class="reference internal" href="#api-documentation">API Documentation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -57,7 +60,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>netbridgece Library</li>
+      <li>NetBridgeCE Library</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -67,11 +70,13 @@
            <div itemprop="articleBody">
              
   <div class="section" id="netbridgece-library">
-<h1>netbridgece Library<a class="headerlink" href="#netbridgece-library" title="Permalink to this headline"></a></h1>
+<h1>NetBridgeCE Library<a class="headerlink" href="#netbridgece-library" title="Permalink to this headline"></a></h1>
 <p><strong>A bridged socket interface for the TI-84+ CE.</strong></p>
 <p>This library allows you to interface with a serial-tcp bridge running on a computer (ie bridged socket) while giving you the feeling of interacting with a standard socket API. The socket internally handles the configuration and maintainence of the state of the USB subsystem so that you do not need to deal with callbacks, events, or the SRL/USB drivers in your code. Simply use the provided API to send/recv data, emit directives to the bridge, and disconnect/close like you would a normal socket.</p>
 <p>In order to use this library, the <strong>tcp bridge</strong> needs to be running on your computer with an active Internet connection. This program can be found in the <em>tcpbridge</em> folder and is called <em>bridge.py</em>.</p>
 <hr class="docutils" />
+<div class="section" id="bridge-operation">
+<h2>Bridge Operation<a class="headerlink" href="#bridge-operation" title="Permalink to this headline"></a></h2>
 <p>The expectation of the bridge is that a single byte prefix the incoming data (calc=&gt;bridge) to tell the bridge whether the data is a <strong>directive</strong> or a <strong>relay</strong>. A directive begins with the static prefix <code class="code docutils literal notranslate"><span class="pre">0xFB</span></code>, then an instruction byte that controls what function to run. A relay packet begins with the static prefix <code class="code docutils literal notranslate"><span class="pre">0x00</span></code> and then has the data to forward to the socket.</p>
 <p>While it is recommended to use the included bridge software, a different bridge can be used as long as it follows the same prefixing strategy. Imagine your bridge uses the prefix byte <code class="code docutils literal notranslate"><span class="pre">0xC0</span></code> for directives and <code class="code docutils literal notranslate"><span class="pre">0xFF</span></code> for relay. To support that with this library, you will need to run the following after socket creation:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">bsocket_setoption</span><span class="p">(</span><span class="n">SOCKET_SET_CONTROL_BYTE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xC0</span><span class="p">);</span>
@@ -84,7 +89,7 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="api-documentation">
-<h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline"></a></h2>
+<h3>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline"></a></h3>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv414bsocket_createPv6size_t">
 <span id="_CPPv314bsocket_createPv6size_t"></span><span id="_CPPv214bsocket_createPv6size_t"></span><span id="bsocket_create__voidP.s"></span><span class="target" id="bridgelib_8h_1a8a1dbc183228afe3d4a24d2b2e3ce253"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_create</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">srlbuf</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">buflen</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414bsocket_createPv6size_t" title="Permalink to this definition"></a><br /></dt>
@@ -137,7 +142,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>option</strong> – An option flag to set. See <strong>bsocket_option_t</strong>. <ul>
-<li><p>SOCKET_BLOCKING - enable/disable blocking name </p></li>
+<li><p>SOCKET_BLOCKING - enable/disable blocking mode </p></li>
 <li><p>SOCKET_TIMEO - timeout (in MS) for blocking mode </p></li>
 <li><p>SOCKET_PREFIX_SIZE - prefix packet with size (see <strong>bsocket_sendpacket</strong>) </p></li>
 <li><p>SOCKET_SET_CONTROL_BYTE - change control byte </p></li>
@@ -164,6 +169,7 @@
 <dt class="sig sig-object cpp" id="_CPPv412bsocket_sendPv6size_t">
 <span id="_CPPv312bsocket_sendPv6size_t"></span><span id="_CPPv212bsocket_sendPv6size_t"></span><span id="bsocket_send__voidP.s"></span><span class="target" id="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_send</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412bsocket_sendPv6size_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Sends data out the open socket. </p>
+<p>Does not add headers or size words to the output data. See <strong>bsocket_sendpacket</strong> for that. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -172,7 +178,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Number of bytes written to the socket. Should be equal to <strong>len</strong>. Does not add headers or size words to the output data. See <strong>bsocket_sendpacket</strong> for that. </p>
+<dd class="field-even"><p>Number of bytes written to the socket. Should be equal to <strong>len</strong>. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -246,6 +252,7 @@
 <dd><p>Calls the event handlers for the USB subsystem. For asnyc use processing transfers and events in code. </p>
 </dd></dl>
 
+</div>
 </div>
 </div>
 

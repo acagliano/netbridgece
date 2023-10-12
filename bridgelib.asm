@@ -455,6 +455,11 @@ JTI6_0:
  
 bsocket_send:
 	call	ti._frameset0
+	or	a, a
+	sbc	hl, hl
+	ld	a, (_bs+72)
+	bit	0, a
+	jr	z, .lbl_2
 	ld	bc, _bs
 	ld	hl, _bs+71
 	ld	de, 1
@@ -472,21 +477,30 @@ bsocket_send:
 	ld	hl, _bs
 	push	hl
 	call	srl_Write
-	ld	sp, ix
+	pop	de
+	pop	de
+	pop	de
+.lbl_2:
 	pop	ix
 	ret
 
 bsocket_recv:
 	ld	hl, -13
 	call	ti._frameset
+	ld	c, 0
+	or	a, a
+	sbc	hl, hl
+	ld	a, (_bs+72)
+	bit	0, a
+	jp	z, .lbl_3
 	ld	de, _timeout_action
-	xor	a, a
-	ld	hl, _bs+66
-	lea	bc, ix - 10
-	ld	(ix - 13), bc
+	ld	iy, _bs+66
+	lea	hl, ix - 10
+	ld	(ix - 13), hl
 	ld	(ix - 3), de
+	ld	a, c
 	ld	(_bsock_timeout), a
-	ld	hl, (hl)
+	ld	hl, (iy)
 	push	hl
 	call	usb_MsToCycles
 	pop	bc
@@ -513,26 +527,27 @@ bsocket_recv:
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jr	nz, .lbl_2
-.lbl_1:
+	jr	nz, .lbl_4
+.lbl_2:
 	ld	hl, (ix - 13)
 	push	hl
 	call	usb_StopTimer
 	pop	hl
 	or	a, a
 	sbc	hl, hl
+.lbl_3:
 	ld	sp, ix
 	pop	ix
 	ret
-.lbl_2:
+.lbl_4:
 	ld	a, (_bsock_timeout)
 	ld	l, a
 	ld	a, (_bs+65)
 	and	a, 1
 	bit	0, l
-	jr	nz, .lbl_1
+	jr	nz, .lbl_2
 	bit	0, a
-	jr	z, .lbl_1
+	jr	z, .lbl_2
 	call	usb_HandleEvents
 	ld	hl, (ix + 9)
 	push	hl
@@ -544,7 +559,7 @@ bsocket_recv:
 	pop	hl
 	pop	hl
 	pop	hl
-	jr	.lbl_2
+	jr	.lbl_4
  
 bsocket_emitdirective:
 	ld	hl, -21
@@ -666,10 +681,13 @@ bsocket_sendpacket:
 	call	ti._frameset
 	ld	hl, (ix + 6)
 	ld	de, 0
+	ld	a, (_bs+72)
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jp	z, .lbl_13
+	jp	z, .lbl_14
+	bit	0, a
+	jp	z, .lbl_14
 	ld	bc, _bs
 	ld	iy, 1
 	lea	hl, ix + 9
@@ -686,7 +704,7 @@ bsocket_sendpacket:
 	pop	hl
 	ld	a, (_bs+69)
 	bit	0, a
-	jr	nz, .lbl_4
+	jr	nz, .lbl_5
 	ld	de, 1
 	ld	bc, (ix + 6)
 	push	bc
@@ -694,10 +712,10 @@ bsocket_sendpacket:
 	or	a, a
 	sbc	hl, de
 	call	pe, ti._setflag
-	jp	p, .lbl_11
+	jp	p, .lbl_12
 	ld	bc, 0
-	jp	.lbl_11
-.lbl_4:
+	jp	.lbl_12
+.lbl_5:
 	ld	iy, (ix - 3)
 	ld	de, 1
 	ld	bc, (ix + 6)
@@ -706,19 +724,19 @@ bsocket_sendpacket:
 	or	a, a
 	sbc	hl, de
 	call	pe, ti._setflag
-	jp	p, .lbl_6
+	jp	p, .lbl_7
 	ld	bc, 0
-.lbl_6:
+.lbl_7:
 	lea	iy, iy + 6
 	push	bc
 	pop	hl
 	ld	de, 0
 	ld	(ix - 9), bc
-.lbl_7:
+.lbl_8:
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jr	z, .lbl_9
+	jr	z, .lbl_10
 	lea	bc, iy
 	ld	(ix - 3), bc
 	ld	bc, (iy - 3)
@@ -731,8 +749,8 @@ bsocket_sendpacket:
 	lea	iy, iy + 6
 	dec	hl
 	ld	bc, (ix - 9)
-	jr	.lbl_7
-.lbl_9:
+	jr	.lbl_8
+.lbl_10:
 	ld	(ix - 6), de
 	ld	hl, 3
 	push	hl
@@ -749,8 +767,8 @@ bsocket_sendpacket:
 	sbc	hl, hl
 	ld	(ix - 6), hl
 	ld	bc, (ix - 9)
-	jr	.lbl_11
-.lbl_10:
+	jr	.lbl_12
+.lbl_11:
 	ld	iy, (ix - 3)
 	lea	hl, iy + 3
 	ld	(ix - 3), hl
@@ -774,15 +792,15 @@ bsocket_sendpacket:
 	add	hl, de
 	ld	(ix - 6), hl
 	dec	bc
-.lbl_11:
+.lbl_12:
 	push	bc
 	pop	hl
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jr	nz, .lbl_10
+	jr	nz, .lbl_11
 	ld	de, (ix - 6)
-.lbl_13:
+.lbl_14:
 	ex	de, hl
 	ld	sp, ix
 	pop	ix
