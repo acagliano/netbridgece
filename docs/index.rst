@@ -8,6 +8,23 @@ In order to use this library, the **tcp bridge** needs to be running on your com
 
 ----
 
+The expectation of the bridge is that a single byte prefix the incoming data (calc=>bridge) to tell the bridge whether the data is a **directive** or a **relay**. A directive begins with the static prefix :code:`0xFB`, then an instruction byte that controls what function to run. A relay packet begins with the static prefix :code:`0x00` and then has the data to forward to the socket.
+
+While it is recommended to use the included bridge software, a different bridge can be used as long as it follows the same prefixing strategy. Imagine your bridge uses the prefix byte :code:`0xC0` for directives and :code:`0xFF` for relay. To support that with this library, you will need to run the following after socket creation:
+
+.. code-block:: c
+  
+  bsocket_setoption(SOCKET_SET_CONTROL_BYTE, 0xC0);
+  bsocket_setoption(SOCKET_SET_RELAY_BYTE, 0xFF);
+  
+It is also possible that your bridge supports directives that the included bridge doesn't. You can still use the :code:`bsocket_emitdirective()` function. Define your directive, make sure to assemble your AAD properly, and emit it to the bridge using this function. Everything should work fine.
+
+.. code-block:: c
+
+  bsocket_emitdirective(MY_NEW_DIRECTIVE, my_aad, sizeof(my_aad));
+
+----
+
 API Documentation
 ^^^^^^^^^^^^^^^^^^
 

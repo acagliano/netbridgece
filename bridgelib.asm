@@ -39,7 +39,7 @@ _timeout_action:
 	ret
 
 _handle_usb_event:
-	ld	hl, -3
+	ld	hl, -6
 	call	ti._frameset
 	ld	bc, (ix + 6)
 	ld	de, (ix + 9)
@@ -122,14 +122,16 @@ _handle_usb_event:
 .lbl_10:
 	ld	(_bs+58), hl
 .lbl_11:
-	ld	iy, _bs+72
-	ld	de, 1024
-	ld	bc, 9600
-	push	bc
-	ld	bc, -1
-	push	bc
-	push	de
+	ld	iy, 9600
+	ld	de, (_bs+73)
+	ld	(ix - 6), de
+	ld	bc, (_bs+76)
 	push	iy
+	ld	de, -1
+	push	de
+	push	bc
+	ld	de, (ix - 6)
+	push	de
 	push	hl
 	ld	hl, _bs
 	push	hl
@@ -177,6 +179,10 @@ bsocket_create:
 	ld	hl, -14
 	call	ti._frameset
 	call	srl_GetCDCStandardDescriptors
+	ld	de, (ix + 6)
+	ld	(_bs+73), de
+	ld	de, (ix + 9)
+	ld	(_bs+76), de
 	ld	de, 36106
 	push	de
 	push	hl
@@ -203,10 +209,13 @@ bsocket_create:
 	ld	(_bs+64), a
 	ld	a, l
 	ld	(_bs+70), a
+	ld	l, 0
+	ld	a, l
+	ld	(_bs+71), a
 	ld	a, h
 	ld	(_bs+65), a
 	ld	(_bs+66), iy
-	xor	a, a
+	ld	a, l
 	ld	(_bsock_timeout), a
 	ld	hl, 14
 	push	hl
@@ -280,143 +289,54 @@ bsocket_create:
  
  
 bsocket_connect:
-	ld	hl, -29
+	ld	hl, -9
 	call	ti._frameset
-	ld	iy, (ix + 6)
-	ld	de, (ix + 9)
-	ld	hl, _timeout_action
-	ld	bc, 0
-	ld	(ix - 23), bc
-	lea	bc, ix - 7
-	ld	(ix - 29), bc
-	lea	bc, ix - 17
-	ld	(ix - 26), bc
-	ld	(ix - 3), de
-	ld	a, (_bs+70)
-	ld	(ix - 5), a
-	ld	(ix - 4), 0
-	ld	(ix - 10), hl
-	push	iy
-	call	ti._strlen
-	pop	de
-	ld	de, 6
-	add	hl, de
-	ld	(ix - 20), hl
-	ld	hl, 3
-	push	hl
-	pea	ix - 20
-	ld	hl, _bs
-	push	hl
-	call	srl_Write
-	pop	hl
-	pop	hl
-	pop	hl
-	ld	hl, 2
-	push	hl
-	pea	ix - 5
-	ld	hl, _bs
-	push	hl
-	call	srl_Write
-	pop	hl
-	pop	hl
-	pop	hl
 	ld	hl, (ix + 6)
 	push	hl
 	call	ti._strlen
+	ld	(ix - 3), hl
 	pop	de
-	inc	hl
 	push	hl
-	ld	hl, (ix + 6)
-	push	hl
-	ld	hl, _bs
-	push	hl
-	call	srl_Write
-	pop	hl
-	pop	hl
-	pop	hl
-	ld	hl, 3
-	push	hl
-	pea	ix - 3
-	ld	hl, _bs
-	push	hl
-	call	srl_Write
-	pop	hl
-	pop	hl
-	pop	hl
-	xor	a, a
-	ld	(_bsock_timeout), a
-	ld	hl, _bs+66
-	ld	hl, (hl)
-	push	hl
-	call	usb_MsToCycles
-	pop	bc
-	push	de
-	push	hl
-	ld	hl, (ix - 26)
-	push	hl
-	call	usb_StartTimerCycles
-	pop	hl
-	pop	hl
-	pop	hl
-.lbl_1:
-	call	usb_HandleEvents
-	ld	iy, (ix - 29)
-	ld	de, (ix - 23)
-	add	iy, de
-	ld	hl, 2
-	or	a, a
-	sbc	hl, de
-	push	hl
-	push	iy
-	ld	hl, _bs
-	push	hl
-	call	srl_Read
+	pop	de
+	inc	de
 	push	hl
 	pop	iy
-	pop	hl
-	pop	hl
-	pop	hl
-	ld	de, (ix - 23)
-	add	iy, de
-	lea	hl, iy
-	ld	de, 2
+	ld	bc, 4
+	add	iy, bc
+	lea	bc, iy
+	ld	(ix - 6), bc
+	ld	hl, 0
+	add	hl, sp
 	or	a, a
-	sbc	hl, de
-	jr	z, .lbl_4
-	ld	a, (_bsock_timeout)
-	ld	l, a
-	ld	a, (_bs+65)
-	and	a, 1
-	bit	0, l
-	jr	nz, .lbl_4
-	bit	0, a
-	ld	(ix - 23), iy
-	jr	nz, .lbl_1
-.lbl_4:
-	ld	hl, (ix - 26)
+	sbc	hl, bc
 	push	hl
-	call	usb_StopTimer
+	pop	iy
+	ld	(ix - 9), iy
+	ld	sp, iy
+	push	de
+	ld	hl, (ix + 6)
+	push	hl
+	push	iy
+	call	ti._memcpy
 	pop	hl
-	ld	l, (ix - 7)
-	ld	a, (_bs+70)
-	ld	e, a
-	ld	a, l
-	cp	a, e
-	ld	l, 0
-	jr	nz, .lbl_9
-	ld	a, (ix - 6)
+	pop	hl
+	pop	hl
+	ld	bc, (ix - 9)
+	push	bc
+	pop	iy
+	ld	de, (ix - 3)
+	add	iy, de
 	or	a, a
-	jr	nz, .lbl_7
-	ld	l, 0
-	jr	.lbl_8
-.lbl_7:
-	ld	l, -1
-.lbl_8:
-	ld	a, l
-	and	a, 1
-	ld	(_bs+71), a
-.lbl_9:
-	ld	a, l
+	sbc	hl, hl
+	ld	l, (iy + 1)
+	ld	de, (ix + 9)
+	ld	(hl), de
+	ld	hl, (ix - 6)
+	push	hl
+	push	bc
+	sbc	hl, hl
+	push	hl
+	call	bsocket_emitdirective
 	ld	sp, ix
 	pop	ix
 	ret
@@ -433,7 +353,7 @@ bsocket_close:
 	push	hl
 	pop	de
 	inc	de
-	ld	bc, 1095
+	ld	bc, 78
 	ldir
 	ret
  
@@ -441,70 +361,87 @@ bsocket_setoption:
 	call	ti._frameset0
 	ld	bc, (ix + 6)
 	xor	a, a
-	ld	de, 6
+	ld	de, 5
 	push	bc
 	pop	hl
 	sbc	hl, de
-	jr	nc, .lbl_13
+	jr	nc, .lbl_14
 	ld	hl, (ix + 9)
-	ld	e, 1
-	ld	iy, JTI5_0
+	ld	a, 1
+	ld	iy, JTI6_0
 	add	iy, bc
 	add	iy, bc
 	add	iy, bc
 	ld	iy, (iy)
 	jp	(iy)
 .lbl_2:
+	ld	e, a
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jr	nz, .lbl_10
+	jr	nz, .lbl_11
 	ld	a, 0
-	jr	.lbl_11
-.lbl_4:
-	ld	(_bs+66), hl
 	jr	.lbl_12
-.lbl_5:
+.lbl_4:
+	ld	e, a
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
-	jr	nz, .lbl_8
+	jr	nz, .lbl_9
 	ld	a, 0
-	jr	.lbl_9
-.lbl_7:
+	jr	.lbl_10
+.lbl_6:
+	ld	e, a
 	ld	a, l
 	ld	(_bs+70), a
-	jr	.lbl_12
+	jr	.lbl_13
+.lbl_7:
+	ld	e, a
+	ld	a, l
+	ld	(_bs+71), a
+	jr	.lbl_13
 .lbl_8:
-	ld	a, 1
+	ld	(_bs+66), hl
+	jr	.lbl_14
 .lbl_9:
-	ld	(_bs+69), a
-	jr	.lbl_12
-.lbl_10:
 	ld	a, 1
+.lbl_10:
+	ld	(_bs+69), a
+	jr	.lbl_13
 .lbl_11:
-	ld	(_bs+65), a
+	ld	a, 1
 .lbl_12:
-	ld	a, e
+	ld	(_bs+65), a
 .lbl_13:
+	ld	a, e
+.lbl_14:
 	pop	ix
 	ret
-JTI5_0:
+JTI6_0:
 	dl	bsocket_setoption.lbl_2
+	dl	bsocket_setoption.lbl_8
 	dl	bsocket_setoption.lbl_4
-	dl	bsocket_setoption.lbl_5
-	dl	bsocket_setoption.lbl_13
-	dl	bsocket_setoption.lbl_13
+	dl	bsocket_setoption.lbl_6
 	dl	bsocket_setoption.lbl_7
  
 bsocket_send:
 	call	ti._frameset0
-	ld	hl, (ix + 6)
-	ld	de, (ix + 9)
 	ld	bc, _bs
+	ld	hl, _bs+71
+	ld	de, 1
 	push	de
 	push	hl
 	push	bc
+	call	srl_Write
+	pop	hl
+	pop	hl
+	pop	hl
+	ld	hl, (ix + 9)
+	push	hl
+	ld	hl, (ix + 6)
+	push	hl
+	ld	hl, _bs
+	push	hl
 	call	srl_Write
 	ld	sp, ix
 	pop	ix
@@ -694,37 +631,47 @@ bsocket_emitdirective:
 	ld	sp, ix
 	pop	ix
 	ret
- 
+  
 bsocket_sendpacket:
 	ld	hl, -15
 	call	ti._frameset
-	ld	bc, (ix + 6)
-	ld	iy, 0
-	push	bc
-	pop	hl
+	ld	hl, (ix + 6)
+	ld	de, 0
 	add	hl, bc
 	or	a, a
 	sbc	hl, bc
 	jp	z, .lbl_13
+	ld	bc, _bs
+	ld	iy, 1
 	lea	hl, ix + 9
+	ld	(ix - 12), hl
 	ld	(ix - 3), hl
-	ld	(ix - 6), iy
+	ld	(ix - 6), de
+	push	iy
+	ld	hl, _bs+71
+	push	hl
+	push	bc
+	call	srl_Write
+	pop	hl
+	pop	hl
+	pop	hl
 	ld	a, (_bs+69)
 	bit	0, a
 	jr	nz, .lbl_4
 	ld	de, 1
+	ld	bc, (ix + 6)
 	push	bc
 	pop	hl
 	or	a, a
 	sbc	hl, de
 	call	pe, ti._setflag
 	jp	p, .lbl_11
-	lea	bc, iy
+	ld	bc, 0
 	jp	.lbl_11
 .lbl_4:
-	ld	(ix - 12), hl
 	ld	iy, (ix - 3)
 	ld	de, 1
+	ld	bc, (ix + 6)
 	push	bc
 	pop	hl
 	or	a, a
@@ -761,7 +708,10 @@ bsocket_sendpacket:
 	ld	hl, 3
 	push	hl
 	pea	ix - 6
-	call	bsocket_send
+	ld	hl, _bs
+	push	hl
+	call	srl_Write
+	pop	hl
 	pop	hl
 	pop	hl
 	ld	hl, (ix - 12)
@@ -781,11 +731,14 @@ bsocket_sendpacket:
 	ld	de, (iy + 3)
 	push	de
 	push	hl
+	ld	hl, _bs
+	push	hl
 	ld	(ix - 9), bc
-	call	bsocket_send
+	call	srl_Write
 	ld	bc, (ix - 9)
 	push	hl
 	pop	de
+	pop	hl
 	pop	hl
 	pop	hl
 	ld	hl, (ix - 6)
@@ -799,9 +752,9 @@ bsocket_sendpacket:
 	or	a, a
 	sbc	hl, bc
 	jr	nz, .lbl_10
-	ld	iy, (ix - 6)
+	ld	de, (ix - 6)
 .lbl_13:
-	lea	hl, iy
+	ex	de, hl
 	ld	sp, ix
 	pop	ix
 	ret
@@ -812,4 +765,4 @@ bsocket_update:
   
 
 _bsock_timeout:   rb	1
-_bs:              rb	1101
+_bs:             	rb	79

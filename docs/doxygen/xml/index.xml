@@ -12,7 +12,7 @@
     <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa3401f88113645c341c269d49d044a020" kind="enumvalue"><name>RESERVED1</name></member>
     <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faa3d72868323333ae179f29abda52f174" kind="enumvalue"><name>SOCKET_STARTTLS</name></member>
     <member refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa1d3d1b9a8dddcea47e1f6f6a64608461" kind="enumvalue"><name>SOCKET_ENDTLS</name></member>
-    <member refid="bridgelib_8h_1ac3615e756488f3c4acf5eb473431cd1f" kind="function"><name>bsocket_create</name></member>
+    <member refid="bridgelib_8h_1a8a1dbc183228afe3d4a24d2b2e3ce253" kind="function"><name>bsocket_create</name></member>
     <member refid="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234" kind="function"><name>bsocket_connect</name></member>
     <member refid="bridgelib_8h_1a8454409862d3480688ec183e3d557f12" kind="function"><name>bsocket_close</name></member>
     <member refid="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6" kind="function"><name>bsocket_setoption</name></member>

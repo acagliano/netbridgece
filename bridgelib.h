@@ -28,9 +28,11 @@ typedef enum _sockdirectives {
 
 /**
  * @brief Initializes the bridged socket device.
+ * @param srlbuf     Pointer to buffer to use with serial device.
+ * @param buflen    Length of the buffer in bytes.
  * @return @b true if bridged socket created successfully, @b false if error
  */
-bool bsocket_create(void);
+bool bsocket_create(void *srlbuf, size_t buflen);
 
 /**
  * @brief Attempts to open a bridged connection to the host/port specified.
@@ -50,11 +52,13 @@ bool bsocket_close(void);
  * \li SOCKET\_TIMEO - timeout (in MS) for blocking mode
  * \li SOCKET\_PREFIX\_SIZE - prefix packet with size (see @b bsocket_sendpacket)
  * \li SOCKET\_SET\_CONTROL\_BYTE - change control byte
+ * \li SOCKET\_SET\_RELAY\_BYTE - change relay byte
  * @param value      A value to update parameter with. See expected data types below.
  * \li SOCKET\_BLOCKING - [BOOL]
  * \li SOCKET\_TIMEO - [UINT24_T]
  * \li SOCKET\_PREFIX\_SIZE - [BOOL]
  * \li SOCKET\_SET\_CONTROL\_BYTE - [UINT8_T]
+ * \li SOCKET\_SET\_RELAY\_BYTE - [UINT8_T]
  * @return @b true if success, @b false if error
  * @warning <b>Do not use blocking sockets until further notice. USB timers not working.</b>
  */

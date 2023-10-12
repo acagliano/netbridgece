@@ -72,15 +72,32 @@
 <p>This library allows you to interface with a serial-tcp bridge running on a computer (ie bridged socket) while giving you the feeling of interacting with a standard socket API. The socket internally handles the configuration and maintainence of the state of the USB subsystem so that you do not need to deal with callbacks, events, or the SRL/USB drivers in your code. Simply use the provided API to send/recv data, emit directives to the bridge, and disconnect/close like you would a normal socket.</p>
 <p>In order to use this library, the <strong>tcp bridge</strong> needs to be running on your computer with an active Internet connection. This program can be found in the <em>tcpbridge</em> folder and is called <em>bridge.py</em>.</p>
 <hr class="docutils" />
+<p>The expectation of the bridge is that a single byte prefix the incoming data (calc=&gt;bridge) to tell the bridge whether the data is a <strong>directive</strong> or a <strong>relay</strong>. A directive begins with the static prefix <code class="code docutils literal notranslate"><span class="pre">0xFB</span></code>, then an instruction byte that controls what function to run. A relay packet begins with the static prefix <code class="code docutils literal notranslate"><span class="pre">0x00</span></code> and then has the data to forward to the socket.</p>
+<p>While it is recommended to use the included bridge software, a different bridge can be used as long as it follows the same prefixing strategy. Imagine your bridge uses the prefix byte <code class="code docutils literal notranslate"><span class="pre">0xC0</span></code> for directives and <code class="code docutils literal notranslate"><span class="pre">0xFF</span></code> for relay. To support that with this library, you will need to run the following after socket creation:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">bsocket_setoption</span><span class="p">(</span><span class="n">SOCKET_SET_CONTROL_BYTE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xC0</span><span class="p">);</span>
+<span class="n">bsocket_setoption</span><span class="p">(</span><span class="n">SOCKET_SET_RELAY_BYTE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>It is also possible that your bridge supports directives that the included bridge doesn’t. You can still use the <code class="code docutils literal notranslate"><span class="pre">bsocket_emitdirective()</span></code> function. Define your directive, make sure to assemble your AAD properly, and emit it to the bridge using this function. Everything should work fine.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">bsocket_emitdirective</span><span class="p">(</span><span class="n">MY_NEW_DIRECTIVE</span><span class="p">,</span><span class="w"> </span><span class="n">my_aad</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">my_aad</span><span class="p">));</span>
+</pre></div>
+</div>
+<hr class="docutils" />
 <div class="section" id="api-documentation">
 <h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline"></a></h2>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv414bsocket_createv">
-<span id="_CPPv314bsocket_createv"></span><span id="_CPPv214bsocket_createv"></span><span id="bsocket_create__void"></span><span class="target" id="bridgelib_8h_1ac3615e756488f3c4acf5eb473431cd1f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_create</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414bsocket_createv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv414bsocket_createPv6size_t">
+<span id="_CPPv314bsocket_createPv6size_t"></span><span id="_CPPv214bsocket_createPv6size_t"></span><span id="bsocket_create__voidP.s"></span><span class="target" id="bridgelib_8h_1a8a1dbc183228afe3d4a24d2b2e3ce253"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_create</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">srlbuf</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">buflen</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414bsocket_createPv6size_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Initializes the bridged socket device. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>true</strong> if bridged socket created successfully, <strong>false</strong> if error </p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>srlbuf</strong> – Pointer to buffer to use with serial device. </p></li>
+<li><p><strong>buflen</strong> – Length of the buffer in bytes. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>true</strong> if bridged socket created successfully, <strong>false</strong> if error </p>
 </dd>
 </dl>
 </dd></dl>
@@ -124,6 +141,7 @@
 <li><p>SOCKET_TIMEO - timeout (in MS) for blocking mode </p></li>
 <li><p>SOCKET_PREFIX_SIZE - prefix packet with size (see <strong>bsocket_sendpacket</strong>) </p></li>
 <li><p>SOCKET_SET_CONTROL_BYTE - change control byte </p></li>
+<li><p>SOCKET_SET_RELAY_BYTE - change relay byte </p></li>
 </ul>
 </p></li>
 <li><p><strong>value</strong> – A value to update parameter with. See expected data types below. <ul>
@@ -131,6 +149,7 @@
 <li><p>SOCKET_TIMEO - [UINT24_T] </p></li>
 <li><p>SOCKET_PREFIX_SIZE - [BOOL] </p></li>
 <li><p>SOCKET_SET_CONTROL_BYTE - [UINT8_T] </p></li>
+<li><p>SOCKET_SET_RELAY_BYTE - [UINT8_T] </p></li>
 </ul>
 </p></li>
 </ul>
