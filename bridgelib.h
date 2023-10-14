@@ -80,7 +80,7 @@ size_t bsocket_send(void *buffer, size_t len);
 size_t bsocket_recv(void *buffer, size_t len);
 
 /**
- * @brief Directs the bridge to wrap the existing socket in TLS protocol.
+ * @brief Directs the bridge to call @b tls.wrap_socket on the existing socket. Use if your connection requires encryption.
  * @return @b true if TLS socket creation successful, @b false if error or TLS not supported.
  */
 bool bsocket_starttls(void);

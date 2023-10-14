@@ -204,7 +204,8 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv416bsocket_starttlsv">
 <span id="_CPPv316bsocket_starttlsv"></span><span id="_CPPv216bsocket_starttlsv"></span><span id="bsocket_starttls__void"></span><span class="target" id="bridgelib_8h_1a9de2df7985b817739e2c5c489ea327df"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_starttls</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416bsocket_starttlsv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Directs the bridge to wrap the existing socket in TLS protocol. </p>
+<dd><p>Directs the bridge to call <strong>tls.wrap_socket</strong> on the existing socket. </p>
+<p>Use if your connection requires encryption. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>true</strong> if TLS socket creation successful, <strong>false</strong> if error or TLS not supported. </p>

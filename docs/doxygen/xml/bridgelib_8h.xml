@@ -358,10 +358,10 @@
           <type>void</type>
         </param>
         <briefdescription>
-<para>Directs the bridge to wrap the existing socket in TLS protocol. </para>
+<para>Directs the bridge to call <bold>tls.wrap_socket</bold> on the existing socket. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="return"><para><bold>true</bold> if TLS socket creation successful, <bold>false</bold> if error or TLS not supported. </para>
+<para>Use if your connection requires encryption. <simplesect kind="return"><para><bold>true</bold> if TLS socket creation successful, <bold>false</bold> if error or TLS not supported. </para>
 </simplesect>
 </para>
         </detaileddescription>
