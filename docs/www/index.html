@@ -202,21 +202,28 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t">
-<span id="_CPPv321bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="_CPPv221bsocket_emitdirective20bsocket_directives_tPv6size_t"></span><span id="bsocket_emitdirective__bsocket_directives_t.voidP.s"></span><span class="target" id="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_emitdirective</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">bsocket_directives_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">directive</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aad</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421bsocket_emitdirective20bsocket_directives_tPv6size_t" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv416bsocket_starttlsv">
+<span id="_CPPv316bsocket_starttlsv"></span><span id="_CPPv216bsocket_starttlsv"></span><span id="bsocket_starttls__void"></span><span class="target" id="bridgelib_8h_1a9de2df7985b817739e2c5c489ea327df"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_starttls</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416bsocket_starttlsv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Directs the bridge to wrap the existing socket in TLS protocol. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>true</strong> if TLS socket creation successful, <strong>false</strong> if error or TLS not supported. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421bsocket_emitdirective7uint8_tPv6size_t">
+<span id="_CPPv321bsocket_emitdirective7uint8_tPv6size_t"></span><span id="_CPPv221bsocket_emitdirective7uint8_tPv6size_t"></span><span id="bsocket_emitdirective__uint8_t.voidP.s"></span><span class="target" id="bridgelib_8h_1ad20b809e52d70fe468668c1bab1aa60c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bsocket_emitdirective</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">directive</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aad</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421bsocket_emitdirective7uint8_tPv6size_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Sends a command to the bridge. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Directives defined are for the bridge included with this library. If you are using your own bridge you will want to define your own directives. </p>
+<p>Values of 0 and 1 are reserved for connect/starttls and are rejected. </p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>directive</strong> – A single-byte function code to send to the bridge. <ul>
-<li><p>SOCKET_STARTTLS </p></li>
-<li><p>SOCKET_ENDTLS </p></li>
-</ul>
-</p></li>
+<li><p><strong>directive</strong> – A single-byte function code to send to the bridge </p></li>
 <li><p><strong>aad</strong> – Additional data to send to the bridge along with the directive. </p></li>
 <li><p><strong>aad_len</strong> – Length of additional data. </p></li>
 </ul>

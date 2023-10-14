@@ -7,3 +7,5 @@
 	export	bsocket_send
 	export	bsocket_recv
 	export	bsocket_update
+	export	bsocket_starttls
+	export	bsocket_emitdirective

@@ -48,6 +48,9 @@ API Documentation
   
 .. doxygenfunction:: bsocket_recv
   :project: BRDGLIB
+  
+.. doxygenfunction:: bsocket_starttls
+  :project: BRDGLIB
 
 .. doxygenfunction:: bsocket_emitdirective
   :project: BRDGLIB

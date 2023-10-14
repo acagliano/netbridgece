@@ -21,10 +21,9 @@ typedef enum _sockoptflags {
 /// These directives apply to the bridge distributed in this repository. If using your own bridge, use whatever
 /// directive mapping you used in it as well as set the Control Byte accordingly.
 typedef enum _sockdirectives {
-  RESERVED0,            // connect
-  RESERVED1,            // disconnect
-  SOCKET_STARTTLS,
-  SOCKET_ENDTLS
+  SOCKET_CONNECT,            /// not used, see @b bsocket_connect
+  SOCKET_STARTTLS,            /// not used, see @b bsocket_starttls
+  /// any other equate after 0x01 is valid for custom directives
 } bsocket_directives_t;
 
 /**
@@ -81,15 +80,19 @@ size_t bsocket_send(void *buffer, size_t len);
 size_t bsocket_recv(void *buffer, size_t len);
 
 /**
+ * @brief Directs the bridge to wrap the existing socket in TLS protocol.
+ * @return @b true if TLS socket creation successful, @b false if error or TLS not supported.
+ */
+bool bsocket_starttls(void);
+
+/**
  * @brief Sends a command to the bridge.
- * @param directive   A single-byte function code to send to the bridge.
- * \li SOCKET\_STARTTLS
- * \li SOCKET\_ENDTLS
+ * @param directive   A single-byte function code to send to the bridge
  * @param aad                Additional data to send to the bridge along with the directive.
  * @param aad_len       Length of additional data.
- * @note Directives defined are for the bridge included with this library. If you are using your own bridge you will want to define your own directives.
+ * @note Values of 0 and 1 are reserved for connect/starttls and are rejected.
  */
-bool bsocket_emitdirective(bsocket_directives_t directive, void *aad, size_t len);
+bool bsocket_emitdirective(uint8_t directive, void *aad, size_t len);
 
 /// Calls the event handlers for the USB subsystem. For asnyc use processing transfers and events in code.
 void bsocket_update(void);

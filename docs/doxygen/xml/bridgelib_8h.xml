@@ -72,15 +72,8 @@
       <memberdef kind="enum" id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" prot="public" static="no" strong="no">
         <type></type>
         <name>bsocket_directives_t</name>
-        <enumvalue id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faea61bb45ae2ff33663da99c18318dd56" prot="public">
-          <name>RESERVED0</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa3401f88113645c341c269d49d044a020" prot="public">
-          <name>RESERVED1</name>
+        <enumvalue id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa3d7766eb13dbd4afbf44a368d90ba894" prot="public">
+          <name>SOCKET_CONNECT</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -89,13 +82,7 @@
         <enumvalue id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faa3d72868323333ae179f29abda52f174" prot="public">
           <name>SOCKET_STARTTLS</name>
           <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36fa1d3d1b9a8dddcea47e1f6f6a64608461" prot="public">
-          <name>SOCKET_ENDTLS</name>
-          <briefdescription>
+<para>not used, see <bold>bsocket_connect</bold> </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -107,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="23" column="1" bodyfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" bodystart="23" bodyend="28"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="23" column="1" bodyfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" bodystart="23" bodyend="27"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -151,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="36" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="36" declcolumn="6"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="35" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="35" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -193,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="44" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="44" declcolumn="6"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="43" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="43" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="bridgelib_8h_1a8454409862d3480688ec183e3d557f12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -210,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="47" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="47" declcolumn="6"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="46" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="46" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -274,7 +261,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="64" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="64" declcolumn="6"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="63" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="63" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -318,7 +305,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="73" column="8" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="73" declcolumn="8"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="72" column="8" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="72" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -360,15 +347,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="81" column="8" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="81" declcolumn="8"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="80" column="8" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="80" declcolumn="8"/>
       </memberdef>
-      <memberdef kind="function" id="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="bridgelib_8h_1a9de2df7985b817739e2c5c489ea327df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool bsocket_starttls</definition>
+        <argsstring>(void)</argsstring>
+        <name>bsocket_starttls</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Directs the bridge to wrap the existing socket in TLS protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><bold>true</bold> if TLS socket creation successful, <bold>false</bold> if error or TLS not supported. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="86" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="86" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="bridgelib_8h_1ad20b809e52d70fe468668c1bab1aa60c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool bsocket_emitdirective</definition>
-        <argsstring>(bsocket_directives_t directive, void *aad, size_t len)</argsstring>
+        <argsstring>(uint8_t directive, void *aad, size_t len)</argsstring>
         <name>bsocket_emitdirective</name>
         <param>
-          <type><ref refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" kindref="member">bsocket_directives_t</ref></type>
+          <type>uint8_t</type>
           <declname>directive</declname>
         </param>
         <param>
@@ -388,13 +395,7 @@
 <parametername>directive</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A single-byte function code to send to the bridge. <itemizedlist>
-<listitem><para>SOCKET_STARTTLS </para>
-</listitem>
-<listitem><para>SOCKET_ENDTLS </para>
-</listitem>
-</itemizedlist>
-</para>
+<para>A single-byte function code to send to the bridge </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -414,13 +415,13 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="note"><para>Directives defined are for the bridge included with this library. If you are using your own bridge you will want to define your own directives. </para>
+<simplesect kind="note"><para>Values of 0 and 1 are reserved for connect/starttls and are rejected. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="92" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="92" declcolumn="6"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="95" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="95" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -437,7 +438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="95" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="95" declcolumn="6"/>
+        <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" line="98" column="6" declfile="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h" declline="98" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -461,29 +462,29 @@
 <codeline lineno="18" refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651a6fb04f26e4cec38a3ac9188f402a545a" refkind="member"><highlight class="normal">}<sp/><ref refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651" kindref="member">bsocket_option_t</ref>;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
 <codeline lineno="23" refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>_sockdirectives<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>RESERVED0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>connect</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>RESERVED1,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>disconnect</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>SOCKET_STARTTLS,</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/>SOCKET_ENDTLS</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">}<sp/><ref refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" kindref="member">bsocket_directives_t</ref>;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36" refid="bridgelib_8h_1a8a1dbc183228afe3d4a24d2b2e3ce253" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a8a1dbc183228afe3d4a24d2b2e3ce253" kindref="member">bsocket_create</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*srlbuf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buflen);</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234" kindref="member">bsocket_connect</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*host,<sp/>uint24_t<sp/>port);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="bridgelib_8h_1a8454409862d3480688ec183e3d557f12" refkind="member"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a8454409862d3480688ec183e3d557f12" kindref="member">bsocket_close</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64" refid="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6" kindref="member">bsocket_setoption</ref>(<ref refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651" kindref="member">bsocket_option_t</ref><sp/>option,<sp/>uint24_t<sp/>value);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73" refid="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03" kindref="member">bsocket_send</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81" refid="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c" kindref="member">bsocket_recv</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92" refid="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a9aa5abccae7e0d0b2905b9a74e9d746a" kindref="member">bsocket_emitdirective</ref>(<ref refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" kindref="member">bsocket_directives_t</ref><sp/>directive,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*aad,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95" refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" kindref="member">bsocket_update</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>SOCKET_CONNECT,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25" refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faa3d72868323333ae179f29abda52f174" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36faa3d72868323333ae179f29abda52f174" kindref="member">SOCKET_STARTTLS</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}<sp/><ref refid="bridgelib_8h_1aae1f5971f60fe2f70829bdb95c90e36f" kindref="member">bsocket_directives_t</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="bridgelib_8h_1a8a1dbc183228afe3d4a24d2b2e3ce253" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a8a1dbc183228afe3d4a24d2b2e3ce253" kindref="member">bsocket_create</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*srlbuf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buflen);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1ae58106ab3841901a9f0d047c29ac1234" kindref="member">bsocket_connect</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*host,<sp/>uint24_t<sp/>port);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="bridgelib_8h_1a8454409862d3480688ec183e3d557f12" refkind="member"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a8454409862d3480688ec183e3d557f12" kindref="member">bsocket_close</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1aec5f4de88b46dccd671bb1495e44b1e6" kindref="member">bsocket_setoption</ref>(<ref refid="bridgelib_8h_1a63f46a3f91e245779f3df7cd266aa651" kindref="member">bsocket_option_t</ref><sp/>option,<sp/>uint24_t<sp/>value);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1ae72c48a20761ebf85b60f14c87d29c03" kindref="member">bsocket_send</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a5db3d724dc34ca2eb22185e18a8c4f0c" kindref="member">bsocket_recv</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="bridgelib_8h_1a9de2df7985b817739e2c5c489ea327df" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1a9de2df7985b817739e2c5c489ea327df" kindref="member">bsocket_starttls</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="bridgelib_8h_1ad20b809e52d70fe468668c1bab1aa60c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1ad20b809e52d70fe468668c1bab1aa60c" kindref="member">bsocket_emitdirective</ref>(uint8_t<sp/>directive,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*aad,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bridgelib_8h_1aa3920dc5dbc9baefa770881111820b52" kindref="member">bsocket_update</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/Users/acagliano/Library/Mobile Documents/com~apple~CloudDocs/Repositories/toolchain/src/netbridgece/bridgelib.h"/>
   </compounddef>
